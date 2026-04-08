@@ -1,0 +1,159 @@
+input.button {
+	background: #0181C5;
+	color: White;
+	font: normal normal bold 11px/normal Arial, Verdana, serif;
+	text-align: center;
+	height : 32px;
+	width : 120px;
+}
+
+input.button-double {
+	background: #0181C5;
+	color: White;
+	font: normal normal bold 11px/normal Arial, Verdana, serif;
+	text-align: center;
+	height : 32px;
+	width : 120px;
+}
+
+input.submit {
+	background: #0181C5;
+	color: White;
+	font: normal normal bold 11px/normal Arial, Verdana, serif;
+	text-align: center;
+	height :28px;
+	width : 100px;
+}
+
+select {
+	background: #FCFFFF;
+	font: normal 12px Arial, Verdana, serif;
+}
+
+input.text {
+	background: #FFFFFF;
+	font: normal 12px Arial, Verdana, serif;
+}
+
+input.reset {
+	background: #0181C5;
+	color: White;
+	font: normal normal bold 11px/normal Arial, Verdana, serif;
+	text-align: center;
+	height :28px;
+}
+
+table {
+	border-color: #E5E5E5;
+	border-width: 1px;	
+	border-style: dotted;
+	float: center;
+	margin-bottom: 0px;
+	font: normal normal normal Arial, Verdana, serif;
+	table-layout: auto;
+	empty-cells: show;
+	caption-side: top;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	padding: 0;
+	}
+	
+table.borderless {
+	border-color: white;
+	border-width: 0px;	
+	border-style: none;
+	float: center;
+	margin-bottom: 0px;
+	font: normal normal normal Arial, Verdana, serif;
+	table-layout: auto;
+	empty-cells: show;
+	caption-side: top;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	padding: 0;
+	}
+
+td 	{
+	border-style: dotted;
+	border-color: #E5E5E5;
+	border-width: 1px;
+	}
+
+td.borderless 	{
+	border-color: white;
+	border-width: 0px;
+	}
+	
+table.menu {
+	border-color: #0181C5;
+	border-style: hidden;
+	border-width: 0px;
+	float: center;
+	margin-bottom: 0px;
+	font: normal normal normal Arial, Verdana, serif;
+	table-layout: auto;
+	empty-cells: show;
+	caption-side: top;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	padding: 0;
+	}
+
+tr {
+	font: normal 12px Arial, Verdana, serif;
+	font-weight: normal;
+}
+
+td.head {
+	font: normal 12px Arial, Verdana, serif;
+	font-weight: bold;	
+	background-color: #0181c5;
+}
+
+body {
+	border: 0px;
+	font: normal normal 11px Arial, Verdana, serif;
+	scrollbar-3dlight-color : #ffdddd;
+	scrollbar-arrow-color : #ffffff;
+	scrollbar-base-color : #0181C5;
+	scrollbar-darkshadow-color : Black;
+	scrollbar-face-color : #0181C5;
+	scrollbar-highlight-color : #999999;
+	scrollbar-shadow-color : #cccccc;
+	scrollbar-track-color : #ffffff;
+}
+
+frameset  {	
+	frameborder: 0px; 
+	border-color: #D2E9FF;
+	border-width: 0px;
+	border-style: hidden;
+	float: left;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;	
+	width: 0px;
+	border-collapse: collapse;
+	}
+	
+frame	{	
+	border-color: #D2E9FF;
+	border-width: 0px;
+	border-style: hidden;
+	float: left;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;	
+	width: 0px;
+	border-collapse: collapse;
+	}
