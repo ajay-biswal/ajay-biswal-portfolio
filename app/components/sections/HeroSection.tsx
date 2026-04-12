@@ -52,7 +52,7 @@ export function HeroSection() {
             Contact Me
           </a>
           <a
-            href="/Ajay_Kumar_Biswal_Resume.pdf"
+            href="/resume/Ajay_Kumar_biswal.pdf"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center rounded-full border border-transparent bg-slate-900 px-6 py-3 text-base font-medium text-slate-50 shadow-lg transition-all hover:bg-slate-800 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
