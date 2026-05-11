@@ -1,105 +1,128 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { SectionHeader } from "../../components/SectionHeader";
-
-function ExperienceCard({
-  company,
-  role,
-  period,
-  points,
-}: {
-  company: string;
-  role: string;
-  period: string;
-  points: string[];
-}) {
-  return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      className="rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg transition-all duration-300 hover:shadow-xl"
-    >
-      <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <div>
-          <h3 className="text-xl font-bold text-slate-900" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{role}</h3>
-          <p className="text-base font-semibold text-slate-700" style={{ fontFamily: "'Inter', sans-serif" }}>{company}</p>
-        </div>
-        <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700" style={{ fontFamily: "'Inter', sans-serif" }}>
-          {period}
-        </span>
-      </div>
-      <ul className="mt-5 space-y-3">
-        {points.map((point, index) => (
-          <li key={index} className="flex gap-3">
-            <div className="mt-1.5 h-2 w-2 rounded-full bg-slate-900"></div>
-            <span className="text-slate-700" style={{ fontFamily: "'Inter', sans-serif" }}>{point}</span>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
-  );
-}
-
-function EducationCard({
-  institute,
-  degree,
-  detail,
-}: {
-  institute: string;
-  degree: string;
-  detail: string;
-}) {
-  return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      className="mt-6 rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg transition-all duration-300 hover:shadow-xl"
-    >
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100">
-          <span className="text-lg">🎓</span>
-        </div>
-        <div>
-          <h3 className="text-xl font-bold text-slate-900" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{degree}</h3>
-          <p className="text-base font-semibold text-slate-700" style={{ fontFamily: "'Inter', sans-serif" }}>{institute}</p>
-        </div>
-      </div>
-      <p className="mt-4 text-slate-700" style={{ fontFamily: "'Inter', sans-serif" }}>{detail}</p>
-    </motion.div>
-  );
-}
+import { SectionHeader } from "@/components/shared/SectionHeader";
+import { ExperienceTimelineItem } from "@/components/shared/ExperienceTimelineItem";
+import { experiences, education } from "@/data/experience";
 
 export function ExperienceSection() {
   return (
-    <motion.section
-      id="experience"
-      className="space-y-6 pb-14"
-      initial={{ opacity: 0, y: 28 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1 * 3, duration: 0.6, ease: "easeOut" }}
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-    >
-      <SectionHeader title="Experience" eyebrow="Where I've worked" />
-
-      <div className="space-y-4">
-        <ExperienceCard
-          company="Dvika"
-          role="Full Stack Developer (MERN & AI)"
-          period="Sept 2025 – Present"
-          points={[
-            "Building features across the stack using Next.js, Node.js and MongoDB.",
-            "Integrating AI using LangChain & OpenAI to automate document-heavy workflows.",
-            "Improving performance, reliability and developer experience using best practices.",
-          ]}
+    <section id="experience" className="relative">
+      <div className="mb-12 md:mb-16">
+        <SectionHeader
+          title="Engineering Journey"
+          eyebrow="Experience & Education"
         />
-
-        <EducationCard
-          institute="Indira Gandhi Institute of Technology"
-          degree="Master of Computer Applications (MCA)"
-          detail="Strong foundation in computer science, software engineering and algorithms."
-        />
+        <p
+          className="mt-4 text-center text-base md:text-lg max-w-2xl mx-auto"
+          style={{ color: "#94a3b8" }}
+        >
+          Building scalable systems and continuously advancing technical expertise.
+        </p>
       </div>
-    </motion.section>
+
+      {/* Timeline with glowing beam */}
+      <div className="relative">
+        {/* Vertical timeline beam */}
+        <div
+          className="absolute left-2 top-0 bottom-0 w-px md:left-6"
+          style={{
+            background: "linear-gradient(to bottom, transparent, rgba(6, 182, 212, 0.4) 10%, rgba(6, 182, 212, 0.4) 90%, transparent)",
+          }}
+        />
+
+        {/* Experience items */}
+        <div className="space-y-8 md:space-y-12">
+          {experiences.map((exp, index) => (
+            <ExperienceTimelineItem
+              key={exp.company}
+              {...exp}
+              index={index}
+            />
+          ))}
+
+          {/* Education */}
+          {education.map((edu, index) => (
+            <motion.div
+              key={edu.institute}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.7,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: (experiences.length + index) * 0.15,
+              }}
+              className="relative pl-8 md:pl-12"
+            >
+              {/* Timeline node */}
+              <div
+                className="absolute left-0 top-2 h-4 w-4 rounded-full md:left-1 md:top-3 md:h-5 md:w-5"
+                style={{
+                  backgroundColor: "rgba(168, 85, 247, 0.9)",
+                  boxShadow: "0 0 20px rgba(168, 85, 247, 0.6)",
+                }}
+              />
+
+              {/* Education card */}
+              <div
+                className="rounded-2xl p-6 md:p-8"
+                style={{
+                  backgroundColor: "rgba(11, 17, 32, 0.6)",
+                  border: "1px solid rgba(148, 163, 184, 0.1)",
+                  backdropFilter: "blur(16px)",
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-2xl"
+                    style={{
+                      backgroundColor: "rgba(168, 85, 247, 0.1)",
+                      border: "1px solid rgba(168, 85, 247, 0.2)",
+                    }}
+                  >
+                    🎓
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-baseline justify-between gap-3 mb-2">
+                      <div>
+                        <h3
+                          className="text-xl md:text-2xl font-bold mb-1"
+                          style={{ color: "#f8fafc" }}
+                        >
+                          {edu.degree}
+                        </h3>
+                        <p
+                          className="text-base md:text-lg"
+                          style={{ color: "rgba(168, 85, 247, 0.9)" }}
+                        >
+                          {edu.institute}
+                        </p>
+                      </div>
+                      <span
+                        className="px-3 py-1 rounded-full text-xs font-semibold"
+                        style={{
+                          backgroundColor: "rgba(148, 163, 184, 0.08)",
+                          color: "#94a3b8",
+                          border: "1px solid rgba(148, 163, 184, 0.1)",
+                        }}
+                      >
+                        {edu.period}
+                      </span>
+                    </div>
+                    <p
+                      className="text-sm md:text-base mt-3"
+                      style={{ color: "#94a3b8" }}
+                    >
+                      {edu.detail}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

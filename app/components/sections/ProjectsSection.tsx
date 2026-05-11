@@ -1,136 +1,151 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { SectionHeader } from "../../components/SectionHeader";
+import { Github, ExternalLink, Zap, Database, Users, MessageSquare, MapPin, CreditCard } from "lucide-react";
+import { GlowButton } from "@/components/shared/GlowButton";
+import { fadeIn, cardStagger, cinematicEase } from "@/lib/animations";
+import { projects } from "@/data/projects";
+import { BanterSystemShowcase } from "./BanterSystemShowcase";
 
-interface ProjectCardProps {
-  name: string;
-  role: string;
-  description: string;
-  tech: string[];
-  highlight: string;
-  github?: string;
-  live?: string;
-}
+/**
+ * ProjectsSection - Engineering Case Studies
+ * PHASE 4B: Banter featured + compact project cards
+ */
 
-function ProjectCard({
-  name,
-  role,
-  description,
-  tech,
-  highlight,
-  github,
-  live,
-}: ProjectCardProps) {
+/**
+ * Compact Project Card (for WonderFest, Uber)
+ */
+function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+  const iconMap = [
+    Zap, Database, Users, MessageSquare, MapPin, CreditCard
+  ];
+
   return (
-    <motion.article
-      whileHover={{ y: -8 }}
-      className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:shadow-xl"
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: cinematicEase, delay: index * 0.1 }}
+      className="p-8 rounded-2xl"
+      style={{
+        backgroundColor: "rgba(11, 17, 32, 0.5)",
+        border: "1px solid rgba(148, 163, 184, 0.08)",
+        backdropFilter: "blur(12px)",
+      }}
+      whileHover={{
+        y: -4,
+        borderColor: "rgba(168, 85, 247, 0.3)",
+        boxShadow: "0 0 30px rgba(168, 85, 247, 0.1)",
+        transition: { duration: 0.3, ease: cinematicEase },
+      }}
     >
-      <div className="space-y-4">
-        <div className="flex items-center justify-between gap-2">
-          <h3 className="text-lg font-bold text-slate-900" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{name}</h3>
-          <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700" style={{ fontFamily: "'Inter', sans-serif" }}>
-            {role}
-          </span>
-        </div>
-        <p className="text-sm text-slate-600" style={{ fontFamily: "'Inter', sans-serif" }}>{description}</p>
-        <p className="text-sm">
-          <span className="font-semibold text-slate-900" style={{ fontFamily: "'Inter', sans-serif" }}>Focus:</span> <span className="text-slate-700" style={{ fontFamily: "'Inter', sans-serif" }}>{highlight}</span>
+      {/* Header */}
+      <div className="mb-6">
+        <h3 className="text-3xl font-bold mb-3" style={{ color: "#f8fafc" }}>
+          {project.name}
+        </h3>
+        <h4 className="text-lg font-semibold mb-3" style={{ color: "#94a3b8" }}>
+          {project.category}
+        </h4>
+        <p className="text-sm leading-relaxed" style={{ color: "#64748b" }}>
+          {project.subtitle}
         </p>
-        <div className="flex flex-wrap gap-2 pt-2">
-          {tech.map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-slate-900 px-3 py-1 text-xs font-medium text-slate-50"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex gap-4 pt-4">
-          {github && github !== "#" && (
-            <a
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm font-semibold text-slate-900 transition hover:text-slate-700"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              GitHub →
-            </a>
-          )}
-          {live && live !== "#" && (
-            <a
-              href={live}
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm font-semibold text-slate-900 transition hover:text-slate-700"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Live Demo →
-            </a>
-          )}
-        </div>
       </div>
-    </motion.article>
+
+      {/* Feature Highlights */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        {project.challenges.map((challenge, i) => {
+          const Icon = iconMap[i % iconMap.length];
+          return (
+            <div key={challenge.title} className="flex items-start gap-3">
+              <div className="p-2 rounded-lg flex-shrink-0" style={{ backgroundColor: "rgba(168, 85, 247, 0.1)" }}>
+                <Icon size={16} style={{ color: "rgba(168, 85, 247, 0.9)" }} />
+              </div>
+              <div>
+                <h5 className="text-sm font-semibold mb-1" style={{ color: "#f8fafc" }}>{challenge.title}</h5>
+                <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>{challenge.description}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Metrics */}
+      <div className="grid grid-cols-3 gap-4 mb-6 pb-6" style={{ borderBottom: "1px solid rgba(148, 163, 184, 0.08)" }}>
+        {project.metrics.map((metric) => (
+          <div key={metric.label} className="text-center">
+            <div className="text-2xl font-bold mb-1" style={{ color: "#f8fafc" }}>{metric.value}</div>
+            <div className="text-xs" style={{ color: "#94a3b8" }}>{metric.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Tech Stack */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.tech.slice(0, 6).map((tech) => (
+          <span key={tech} className="px-3 py-1.5 rounded-full text-xs font-medium" style={{ backgroundColor: "rgba(168, 85, 247, 0.08)", color: "rgba(168, 85, 247, 0.9)", border: "1px solid rgba(168, 85, 247, 0.15)" }}>
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {/* CTAs */}
+      <div className="flex flex-wrap gap-3">
+        <GlowButton variant="secondary" size="sm">
+          <Github size={14} className="mr-2" /> GitHub
+        </GlowButton>
+        <GlowButton variant="secondary" size="sm">
+          <ExternalLink size={14} className="mr-2" /> Live Demo
+        </GlowButton>
+      </div>
+    </motion.div>
   );
 }
 
+/**
+ * Main Projects Section
+ */
 export function ProjectsSection() {
-  return (
-    <motion.section
-      id="projects"
-      className="space-y-6 pb-14"
-      initial={{ opacity: 0, y: 28 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.1 * 2, duration: 0.6, ease: "easeOut" }}
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-    >
-      <SectionHeader title="Projects" eyebrow="Selected work" />
+  const banter = projects[0];
+  const otherProjects = projects.slice(1);
 
-      <div className="grid gap-5 md:grid-cols-2">
-        <ProjectCard
-          name="Dvika – LawTech SaaS Platform"
-          role="Full Stack · MERN & AI"
-          description="Multi-tenant lawtech platform with secure auth, subscription billing and AI-powered document summarization using LangChain and OpenAI."
-          tech={["Next.js", "Node.js", "MongoDB", "LangChain", "Stripe"]}
-          highlight="AI workflows, billing, role-based access."
-          github="#"
-          live="#"
-        />
-        <ProjectCard
-          name="Voltrax – Multi-Tenant eCRM"
-          role="Full Stack · Multi-tenant"
-          description="Customer relationship management system with tenant-based routing, dashboards and AI insights for lead prioritization."
-          tech={["React", "Node.js", "MongoDB", "JWT"]}
-          highlight="Tenant isolation, dashboards, API design."
-          github="#"
-          live="#"
-        />
-        <ProjectCard
-          name="WonderFest – Wedding Planner"
-          role="Full Stack · MERN"
-          description="End-to-end wedding planning platform with vendor discovery, budgeting, and user authentication."
-          tech={["MERN", "JWT", "MongoDB Atlas"]}
-          highlight="Real world app with clean UX and auth."
-          github="#"
-          live="#"
-        />
-        <ProjectCard
-          name="Uber Clone · Real-Time Rides"
-          role="Full Stack · Realtime"
-          description="Ride booking app inspired by Uber with real-time ride status, maps and payments."
-          tech={["React", "Node.js", "MongoDB", "WebSockets", "Stripe"]}
-          highlight="Realtime communication and payment integration."
-          github="#"
-          live="#"
-        />
+  return (
+    <section id="projects" className="relative py-24">
+      {/* Atmosphere */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full" style={{ background: "radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 70%)", filter: "blur(100px)" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(168, 85, 247, 0.04) 0%, transparent 65%)", filter: "blur(90px)" }} />
       </div>
-    </motion.section>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: cinematicEase }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: "rgba(11, 17, 32, 0.6)", border: "1px solid rgba(148, 163, 184, 0.1)" }}>
+            <span className="text-xs font-semibold tracking-wider uppercase" style={{ color: "rgba(148, 163, 184, 0.9)" }}>ENGINEERING PORTFOLIO</span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "#f8fafc" }}>Engineering Case Studies</h2>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: "#64748b" }}>Deep dives into architecture decisions, system design, and engineering tradeoffs.</p>
+        </motion.div>
+
+        {/* Featured Banter Section (ONLY ONCE) */}
+        <BanterSystemShowcase />
+
+        {/* Divider */}
+        <div className="h-px mb-12" style={{ background: "linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.2), transparent)" }} />
+
+        {/* Other Projects Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {otherProjects.map((project, index) => (
+            <ProjectCard key={project.name} project={project} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

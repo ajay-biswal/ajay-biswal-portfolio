@@ -1,59 +1,57 @@
-"use client";
-
-import React from "react";
-import { Navbar } from "./components/Navbar";
-import { HeroSection } from "./components/sections/HeroSection";
-import { SkillsSection } from "./components/sections/SkillsSection";
-import { ProjectsSection } from "./components/sections/ProjectsSection";
-import { ExperienceSection } from "./components/sections/ExperienceSection";
-import { ContactSection } from "./components/sections/ContactSection";
+import { Navbar } from "@/components/layout/Navbar";
+import { HeroSection } from "@/app/components/sections/HeroSection";
+import { SkillsSection } from "@/app/components/sections/SkillsSection";
+import { ProjectsSection } from "@/app/components/sections/ProjectsSection";
+import { BanterSystemShowcase } from "@/app/components/sections/BanterSystemShowcase";
+import { ExperienceSection } from "@/app/components/sections/ExperienceSection";
+import { ContactSection } from "@/app/components/sections/ContactSection";
+import { Footer } from "@/components/layout/Footer";
+import { AmbientBackground } from "@/components/shared/AmbientBackground";
+import { CursorSpotlight } from "@/components/shared/CursorSpotlight";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-white text-slate-900 antialiased" style={{ fontFamily: "'Inter', sans-serif" }}>
-      {/* Enhanced background with gradient */}
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-slate-50 to-slate-100"
-      />
+    <div className="relative min-h-screen antialiased">
+      {/* Ambient background engine */}
+      <AmbientBackground />
+      
+      {/* Cursor-reactive lighting */}
+      <CursorSpotlight />
 
       <Navbar />
 
-      <main className="mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+      <main>
+        {/* Hero Section - Full viewport */}
         <HeroSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <ContactSection />
         
-        <footer className="mt-16 border-t border-slate-200 pt-8 text-center text-sm text-slate-600" style={{ fontFamily: "'Inter', sans-serif" }}>
-          <p className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-1">
-            <span>© {new Date().getFullYear()} Ajay Kumar Biswal.</span>
-            <span>Built with</span>
-            <a 
-              href="https://nextjs.org" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="font-semibold text-slate-900 hover:underline"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Next.js
-            </a>
-            <span>,</span>
-            <a 
-              href="https://tailwindcss.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="font-semibold text-slate-900 hover:underline"
-              style={{ fontFamily: "'Inter', sans-serif" }}
-            >
-              Tailwind CSS
-            </a>
-            <span>and a bit of</span>
-            <span className="font-semibold text-slate-900" style={{ fontFamily: "'Inter', sans-serif" }}>caffeine</span>
-            <span>☕</span>
-          </p>
-        </footer>
+        {/* Section separator */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="h-px" style={{ background: "linear-gradient(to right, transparent, rgba(148, 163, 184, 0.1), transparent)" }} />
+        </div>
+
+        {/* Content Sections */}
+        <div className="mx-auto max-w-7xl px-4 pb-15 pt-10 sm:px-6 sm:pt-20 lg:px-8 space-y-20 md:space-y-24">
+          <SkillsSection />
+          
+          <div className="h-px" style={{ background: "linear-gradient(to right, transparent, rgba(148, 163, 184, 0.08), transparent)" }} />
+          
+          <ProjectsSection />
+          
+          <div className="h-px" style={{ background: "linear-gradient(to right, transparent, rgba(148, 163, 184, 0.08), transparent)" }} />
+          
+          {/* Banter - Real-Time System Showcase
+          <BanterSystemShowcase /> */}
+          
+          <div className="h-px" style={{ background: "linear-gradient(to right, transparent, rgba(148, 163, 184, 0.08), transparent)" }} />
+          
+          <ExperienceSection />
+          
+          <div className="h-px" style={{ background: "linear-gradient(to right, transparent, rgba(148, 163, 184, 0.08), transparent)" }} />
+          
+          <ContactSection />
+        </div>
+        
+        <Footer />
       </main>
     </div>
   );

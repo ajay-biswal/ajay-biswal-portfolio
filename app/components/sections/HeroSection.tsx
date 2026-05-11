@@ -1,101 +1,117 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { TypewriterText } from "../TypewriterText";
+import { HeroStatusBadge } from "@/components/shared/HeroStatusBadge";
+import { RoleRotator } from "@/components/shared/RoleRotator";
+import { WorkstationScene } from "@/components/shared/WorkstationScene";
+import { EngineeringStackStrip } from "@/components/shared/EngineeringStackStrip";
+import { SocialControlStrip } from "@/components/shared/SocialControlStrip";
+import { GlowButton } from "@/components/shared/GlowButton";
+import { GradientText } from "@/components/shared/GradientText";
+import { heroStagger, fadeIn, scaleReveal } from "@/lib/animations";
 
 export function HeroSection() {
   return (
-    <motion.section
-      id="about"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex flex-col gap-12 pb-16 pt-4"
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
-      <div className="space-y-8 text-center">
-        <h1 className="text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-          Building <TypewriterText /> web experiences.
-        </h1>
-
-        <p className="mx-auto max-w-2xl text-lg text-slate-600 sm:text-xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-          I&apos;m{" "}
-          <span className="font-semibold text-slate-900">
-            Ajay Kumar Biswal
-          </span>
-          , a full stack developer based in Bengaluru. I design and build
-          production-ready web apps with{" "}
-          <span className="font-semibold text-slate-900">
-            Next.js, Node.js, MongoDB
-          </span>{" "}
-          and integrate AI using{" "}
-          <span className="font-semibold text-slate-900">
-            LangChain & OpenAI
-          </span>{" "}
-          to turn complex workflows into smooth, automated systems.
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-4 pt-4">
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-base font-medium text-white shadow-lg transition-all hover:bg-slate-800 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
-            style={{ fontFamily: "'Inter', sans-serif" }}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* LEFT SIDE - Identity Content (7 columns) */}
+          <motion.div
+            className="lg:col-span-7 space-y-8 relative z-10"
+            variants={heroStagger}
+            initial="hidden"
+            animate="visible"
           >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-base font-medium text-slate-800 shadow-sm transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Contact Me
-          </a>
-          <a
-            href="/resume/Ajay_Kumar_biswal.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-transparent bg-slate-900 px-6 py-3 text-base font-medium text-slate-50 shadow-lg transition-all hover:bg-slate-800 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Download Resume
-          </a>
-        </div>
+            {/* Status Badge */}
+            <motion.div variants={fadeIn}>
+              <HeroStatusBadge />
+            </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3 pt-6">
-          <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-            MERN Stack
-          </span>
-          <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Next.js & TypeScript
-          </span>
-          <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-            LangChain & OpenAI
-          </span>
-          <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Clean Architecture
-          </span>
+            {/* Main Headline - Cinematic Typography */}
+            <motion.div
+              variants={fadeIn}
+              className="space-y-4"
+            >
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight" style={{ color: "#f8fafc" }}>
+                Building{" "}
+                <GradientText variant="cyan">intelligent</GradientText>
+                <br />
+                web experiences.
+              </h1>
+            </motion.div>
+
+            {/* Engineering Identity Statement */}
+            <motion.p
+              variants={fadeIn}
+              className="text-lg md:text-xl leading-relaxed max-w-2xl"
+              style={{ color: "#94a3b8" }}
+            >
+              I build scalable{" "}
+              <span className="font-semibold" style={{ color: "#f8fafc" }}>AI-powered systems</span>
+              {" "}and production-grade web architectures that transform complex challenges into elegant engineering solutions.
+            </motion.p>
+
+            {/* Terminal-Style Role Rotator */}
+            <motion.div
+              variants={fadeIn}
+              className="inline-flex items-center gap-3 px-4 py-3 rounded-lg"
+              style={{
+                backgroundColor: "rgba(11, 17, 32, 0.6)",
+                border: "1px solid rgba(148, 163, 184, 0.1)",
+                fontFamily: "monospace",
+              }}
+            >
+              <span style={{ color: "rgba(6, 182, 212, 0.8)" }}>❯</span>
+              <RoleRotator
+                roles={[
+                  "Full Stack Developer",
+                  "AI Systems Engineer",
+                  "MERN Stack Engineer",
+                  "Real-Time Architecture Enthusiast",
+                ]}
+                typingSpeed={80}
+                deletingSpeed={40}
+                pauseDuration={1800}
+              />
+            </motion.div>
+
+            {/* CTA System */}
+            <motion.div
+              variants={fadeIn}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <GlowButton variant="primary" size="lg">
+                View Projects
+              </GlowButton>
+              <GlowButton variant="secondary" size="lg">
+                Contact Me
+              </GlowButton>
+            </motion.div>
+
+            {/* Social Control Strip */}
+            <SocialControlStrip />
+
+            {/* Engineering Stack Strip */}
+            <EngineeringStackStrip />
+          </motion.div>
+
+          {/* RIGHT SIDE - Immersive Workstation Scene (5 columns) */}
+          <motion.div
+            className="lg:col-span-5 relative"
+            variants={scaleReveal}
+            initial="hidden"
+            animate="visible"
+          >
+            <WorkstationScene
+              imageUrl="/images/computer.png"
+              imageAlt="Engineering workstation - Modern development setup"
+            />
+          </motion.div>
         </div>
       </div>
-
-      {/* HERO ILLUSTRATION */}
-      <motion.div
-        className="relative mx-auto w-full max-w-2xl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <div className="relative overflow-hidden rounded-3xl bg-white">
-          <Image
-            src="/undraw_dev-productivity_5wps.svg"
-            alt="Developer productivity illustration"
-            width={800}
-            height={600}
-            className="h-auto w-full"
-            priority
-          />
-        </div>
-      </motion.div>
-    </motion.section>
+    </section>
   );
 }

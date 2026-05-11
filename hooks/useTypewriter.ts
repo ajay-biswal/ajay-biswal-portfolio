@@ -1,20 +1,22 @@
-"use client";
+import { useState, useEffect } from "react";
 
-import React from "react";
-
-function useTypewriter(
+/**
+ * Custom hook for typewriter effect
+ * Separated from UI component for reusability and testability
+ */
+export function useTypewriter(
   words: string[],
   typingSpeed = 120,
   pauseTime = 1400,
   enabled = true
 ) {
-  const [index, setIndex] = React.useState(0);
-  const [subIndex, setSubIndex] = React.useState(
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(
     words[0]?.length ?? 0 // show first word fully on initial render
   );
-  const [deleting, setDeleting] = React.useState(false);
+  const [deleting, setDeleting] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!enabled || words.length === 0) return;
 
     const currentWord = words[index];
@@ -41,27 +43,4 @@ function useTypewriter(
   }, [subIndex, index, deleting, words, typingSpeed, pauseTime, enabled]);
 
   return words[index]?.substring(0, subIndex) ?? "";
-}
-
-export function TypewriterText() {
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const text = useTypewriter(
-    ["scalable,", "intelligent,", "AI-powered,"],
-    120,
-    1400,
-    mounted
-  );
-
-  return (
-    <span className="inline-flex items-baseline gap-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-      <span className="text-slate-900 font-semibold">{text}</span>
-      {/* caret */}
-      <span className="h-6 w-[2px] translate-y-[3px] bg-slate-900 animate-pulse sm:h-7" />
-    </span>
-  );
 }
