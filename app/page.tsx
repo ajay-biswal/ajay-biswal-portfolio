@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/app/components/sections/HeroSection";
 import { SkillsSection } from "@/app/components/sections/SkillsSection";
 import { ProjectsSection } from "@/app/components/sections/ProjectsSection";
+import { FeaturedProductGrid } from "@/app/components/sections/FeaturedProductGrid";
 import { BanterSystemShowcase } from "@/app/components/sections/BanterSystemShowcase";
 import { ExperienceSection } from "@/app/components/sections/ExperienceSection";
 import { ContactSection } from "@/app/components/sections/ContactSection";
@@ -25,10 +26,14 @@ export default function HomePage() {
         <HeroSection />
         
         {/* Content Sections - Optimized spacing */}
-        <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pt-12 lg:px-8 space-y-16 md:space-y-20">
+        <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pt-12 lg:px-8 space-y-12 md:space-y-16">
           <SkillsSection />
           
           <ProjectsSection />
+          
+          <div className="-mt-8">
+            <FeaturedProductGrid />
+          </div>
           
           <ExperienceSection />
           

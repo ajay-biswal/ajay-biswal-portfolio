@@ -8,7 +8,7 @@ import { cinematicEase } from "@/lib/animations";
 const dockItems = [
   { icon: Mail, label: "Email", value: "ajaykrbiswal@gmail.com", href: "mailto:ajaykrbiswal@gmail.com" },
   { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/ajaykumarbiswal", href: "https://linkedin.com/in/ajaykumarbiswal" },
-  { icon: Github, label: "GitHub", value: "github.com/ajayofficial22", href: "https://github.com/ajay-biswal" },
+  { icon: Github, label: "GitHub", value: "github.com/ajay-biswal", href: "https://github.com/ajay-biswal" },
   { icon: Phone, label: "Phone", value: "+91 89176 15941", href: "tel:+918917615941" },
 ];
 

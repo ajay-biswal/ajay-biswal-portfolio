@@ -9,7 +9,7 @@ export const siteConfig = {
   responseTime: "< 24 Hours",
   availability: "Available for opportunities",
   social: {
-    github: "https://github.com/ajayofficial22",
+    github: "https://github.com/ajay-biswal",
     twitter: "https://twitter.com",
     linkedin: "https://linkedin.com/in/ajaykumarbiswal",
     instagram: "https://www.instagram.com",
