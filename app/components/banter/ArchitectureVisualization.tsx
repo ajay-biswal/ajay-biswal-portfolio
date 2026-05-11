@@ -108,7 +108,7 @@ const initialNodes: Node[] = [
   },
 ];
 
-// Animated edges with wide curves
+// Animated edges with flowing packet simulation
 const initialEdges: Edge[] = [
   {
     id: "e-client-gateway",
@@ -116,7 +116,12 @@ const initialEdges: Edge[] = [
     target: "gateway",
     type: "smoothstep",
     animated: true,
-    style: { stroke: "rgba(6, 182, 212, 0.4)", strokeWidth: 3, strokeDasharray: "8 8" },
+    style: { 
+      stroke: "rgba(6, 182, 212, 0.4)", 
+      strokeWidth: 3, 
+      strokeDasharray: "8 8",
+      animation: "edgeFlow 2s linear infinite",
+    },
     markerEnd: { type: MarkerType.ArrowClosed, color: "rgba(6, 182, 212, 0.7)", width: 20, height: 20 },
   },
   {
@@ -125,7 +130,12 @@ const initialEdges: Edge[] = [
     target: "redis",
     type: "smoothstep",
     animated: true,
-    style: { stroke: "rgba(168, 85, 247, 0.4)", strokeWidth: 3, strokeDasharray: "8 8" },
+    style: { 
+      stroke: "rgba(168, 85, 247, 0.4)", 
+      strokeWidth: 3, 
+      strokeDasharray: "8 8",
+      animation: "edgeFlow 2.5s linear infinite",
+    },
     markerEnd: { type: MarkerType.ArrowClosed, color: "rgba(168, 85, 247, 0.7)", width: 20, height: 20 },
   },
   {
@@ -134,7 +144,12 @@ const initialEdges: Edge[] = [
     target: "message",
     type: "smoothstep",
     animated: true,
-    style: { stroke: "rgba(6, 182, 212, 0.4)", strokeWidth: 3, strokeDasharray: "8 8" },
+    style: { 
+      stroke: "rgba(6, 182, 212, 0.4)", 
+      strokeWidth: 3, 
+      strokeDasharray: "8 8",
+      animation: "edgeFlow 2.2s linear infinite",
+    },
     markerEnd: { type: MarkerType.ArrowClosed, color: "rgba(6, 182, 212, 0.7)", width: 20, height: 20 },
   },
   {
@@ -143,7 +158,12 @@ const initialEdges: Edge[] = [
     target: "presence",
     type: "smoothstep",
     animated: true,
-    style: { stroke: "rgba(6, 182, 212, 0.4)", strokeWidth: 3, strokeDasharray: "8 8" },
+    style: { 
+      stroke: "rgba(6, 182, 212, 0.4)", 
+      strokeWidth: 3, 
+      strokeDasharray: "8 8",
+      animation: "edgeFlow 2.8s linear infinite",
+    },
     markerEnd: { type: MarkerType.ArrowClosed, color: "rgba(6, 182, 212, 0.7)", width: 20, height: 20 },
   },
   {
@@ -152,7 +172,12 @@ const initialEdges: Edge[] = [
     target: "notification",
     type: "smoothstep",
     animated: true,
-    style: { stroke: "rgba(168, 85, 247, 0.4)", strokeWidth: 3, strokeDasharray: "8 8" },
+    style: { 
+      stroke: "rgba(168, 85, 247, 0.4)", 
+      strokeWidth: 3, 
+      strokeDasharray: "8 8",
+      animation: "edgeFlow 2.4s linear infinite",
+    },
     markerEnd: { type: MarkerType.ArrowClosed, color: "rgba(168, 85, 247, 0.7)", width: 20, height: 20 },
   },
   {
@@ -161,7 +186,12 @@ const initialEdges: Edge[] = [
     target: "database",
     type: "smoothstep",
     animated: true,
-    style: { stroke: "rgba(6, 182, 212, 0.4)", strokeWidth: 3, strokeDasharray: "8 8" },
+    style: { 
+      stroke: "rgba(6, 182, 212, 0.4)", 
+      strokeWidth: 3, 
+      strokeDasharray: "8 8",
+      animation: "edgeFlow 3s linear infinite",
+    },
     markerEnd: { type: MarkerType.ArrowClosed, color: "rgba(6, 182, 212, 0.7)", width: 20, height: 20 },
   },
   {
@@ -170,7 +200,12 @@ const initialEdges: Edge[] = [
     target: "database",
     type: "smoothstep",
     animated: true,
-    style: { stroke: "rgba(168, 85, 247, 0.4)", strokeWidth: 3, strokeDasharray: "8 8" },
+    style: { 
+      stroke: "rgba(168, 85, 247, 0.4)", 
+      strokeWidth: 3, 
+      strokeDasharray: "8 8",
+      animation: "edgeFlow 2.6s linear infinite",
+    },
     markerEnd: { type: MarkerType.ArrowClosed, color: "rgba(168, 85, 247, 0.7)", width: 20, height: 20 },
   },
 ];

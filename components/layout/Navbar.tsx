@@ -51,8 +51,21 @@ export function Navbar() {
   }, []);
 
   // Close mobile menu on navigation
-  const handleNavClick = () => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setIsMobileMenuOpen(false);
+    
+    // Smooth scroll to section using native scrollIntoView
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start",
+      });
+      
+      // Update active section immediately for better UX
+      setActiveSection(href);
+    }
   };
 
   // Close mobile menu on Escape key
@@ -122,6 +135,7 @@ export function Navbar() {
               <motion.a
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="relative transition-colors duration-300"
                 style={{
                   color: isActive ? "rgba(6, 182, 212, 0.9)" : "#94a3b8",
@@ -191,7 +205,7 @@ export function Navbar() {
                   <motion.a
                     key={item.href}
                     href={item.href}
-                    onClick={handleNavClick}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className="rounded-lg px-4 py-3 text-base font-medium transition-colors"
                     style={{
                       color: isActive ? "rgba(6, 182, 212, 0.9)" : "#94a3b8",

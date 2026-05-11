@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/context/ThemeContext";
+import { CursorGlow } from "@/components/shared/CursorGlow";
 
 // Configure Inter for body text
 const inter = Inter({
@@ -37,7 +38,10 @@ export default function RootLayout({
           spaceGrotesk.variable
         )}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <CursorGlow />
+        </ThemeProvider>
       </body>
     </html>
   );

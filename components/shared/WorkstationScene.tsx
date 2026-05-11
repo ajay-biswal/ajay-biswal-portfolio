@@ -124,13 +124,13 @@ export function WorkstationScene({ imageUrl, imageAlt }: WorkstationSceneProps) 
       {/* Floating HUD Cards */}
       <HUDCard
         label="Projects Delivered"
-        value="15+"
+        value="5+"
         position="top-right"
         delay={0.9}
       />
       <HUDCard
-        label="Years Building Systems"
-        value="2+"
+        label="Months Building Systems"
+        value="8"
         position="upper-mid"
         delay={1.0}
       />

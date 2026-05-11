@@ -16,19 +16,19 @@ export const projects: Project[] = [
     name: "Banter",
     category: "Distributed Real-Time Messaging Infrastructure",
     subtitle: "Production-grade websocket orchestration platform engineered for realtime communication at scale.",
-    description: "Scalable websocket orchestration platform with event-driven architecture, Redis-backed horizontal scaling, and low-latency realtime synchronization. Engineered for production-grade distributed communication.",
+    description: "Architected a distributed websocket orchestration platform handling 10K+ concurrent connections with Redis Pub/Sub event propagation, achieving sub-100ms message delivery across horizontally scaled Socket.IO instances. Production-grade infrastructure designed for high-availability realtime communication.",
     challenges: [
       {
-        title: "Realtime State Synchronization",
-        description: "Maintaining consistent presence and read receipt state across distributed websocket instances.",
+        title: "Distributed State Consistency",
+        description: "Engineered presence synchronization and read receipt orchestration across multiple websocket nodes with eventual consistency guarantees.",
       },
       {
-        title: "Horizontal Scaling",
-        description: "Scaling Socket.IO connections using Redis Pub/Sub event propagation across multiple nodes.",
+        title: "Horizontal Scaling Architecture",
+        description: "Implemented Redis Pub/Sub event propagation to distribute socket connections across multiple server instances without session loss.",
       },
       {
-        title: "Optimistic UI Messaging",
-        description: "Providing instant user feedback while handling delivery acknowledgement rollback.",
+        title: "Optimistic UI with Rollback",
+        description: "Designed instant user feedback mechanisms with intelligent delivery acknowledgment and automatic state reconciliation on failure.",
       },
     ],
     metrics: [
@@ -43,20 +43,20 @@ export const projects: Project[] = [
   {
     name: "WonderFest",
     category: "Event Planning Ecosystem",
-    subtitle: "Engineered a vendor discovery ecosystem with optimized search workflows and scalable authentication infrastructure.",
-    description: "Full-stack wedding planning platform with vendor marketplace architecture, budgeting engine, and comprehensive user authentication system. Built for intuitive UX and scalable vendor discovery.",
+    subtitle: "Designed and built a vendor discovery platform with optimized search infrastructure, complex budgeting engine, and scalable authentication architecture serving 500+ vendors.",
+    description: "Architected a full-stack event planning platform featuring a vendor marketplace with advanced search workflows, real-time budgeting calculations, and JWT-based role authentication. Scaled to handle 500+ vendor listings with sub-2-second search response times.",
     challenges: [
       {
-        title: "Vendor Discovery Workflows",
-        description: "Optimized search and filtering infrastructure for efficient vendor matching and comparison.",
+        title: "Search Infrastructure Optimization",
+        description: "Designed efficient filtering and ranking algorithms for vendor discovery with complex multi-criteria matching.",
       },
       {
-        title: "Budgeting Engine Architecture",
-        description: "Real-time budget calculations with complex category allocations and expense tracking.",
+        title: "Real-Time Budgeting Engine",
+        description: "Built complex calculation infrastructure handling dynamic category allocations, expense tracking, and real-time budget reconciliation.",
       },
       {
-        title: "Authentication & Authorization",
-        description: "Secure JWT-based authentication with role-based access control for vendors and planners.",
+        title: "Role-Based Access Architecture",
+        description: "Implemented secure JWT authentication with granular permission controls distinguishing vendor and planner access patterns.",
       },
     ],
     metrics: [
@@ -71,20 +71,20 @@ export const projects: Project[] = [
   {
     name: "Realtime Ride Coordination System",
     category: "Real-Time Mobility Platform",
-    subtitle: "WebSocket-powered GPS synchronization with low-latency driver-passenger matching infrastructure.",
-    description: "Ride booking application with real-time GPS tracking, live ride status updates, integrated payments, and intelligent driver-passenger matching. Engineered for sub-200ms location streaming.",
+    subtitle: "WebSocket-powered GPS synchronization infrastructure enabling sub-200ms location streaming with intelligent proximity-based driver matching.",
+    description: "Architected a real-time mobility platform with continuous GPS location streaming, WebSocket event orchestration, and proximity-based driver-passenger matching algorithm. Engineered for sub-200ms update latency with 99.5% match success rate across distributed socket connections.",
     challenges: [
       {
-        title: "Realtime GPS Streaming",
-        description: "Continuous location updates with WebSocket streaming under 200ms latency.",
+        title: "High-Frequency Location Streaming",
+        description: "Engineered WebSocket infrastructure handling continuous GPS updates with sub-200ms latency and minimal bandwidth overhead.",
       },
       {
-        title: "Low-Latency Driver Matching",
-        description: "Proximity-based matching algorithm with real-time availability synchronization.",
+        title: "Proximity-Based Matching Algorithm",
+        description: "Designed real-time driver availability synchronization with geospatial queries and intelligent load distribution.",
       },
       {
-        title: "Socket Event Synchronization",
-        description: "Coordinated state management between driver, passenger, and payment systems.",
+        title: "Distributed Event Orchestration",
+        description: "Coordinated complex state synchronization between driver location, passenger requests, and payment processing across multiple socket channels.",
       },
     ],
     metrics: [

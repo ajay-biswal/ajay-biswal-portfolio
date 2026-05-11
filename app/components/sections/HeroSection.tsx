@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HeroStatusBadge } from "@/components/shared/HeroStatusBadge";
+
 import { RoleRotator } from "@/components/shared/RoleRotator";
 import { WorkstationScene } from "@/components/shared/WorkstationScene";
 import { EngineeringStackStrip } from "@/components/shared/EngineeringStackStrip";
@@ -11,6 +11,17 @@ import { GradientText } from "@/components/shared/GradientText";
 import { heroStagger, fadeIn, scaleReveal } from "@/lib/animations";
 
 export function HeroSection() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Use native scrollIntoView with smooth behavior
+      element.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -26,9 +37,9 @@ export function HeroSection() {
             animate="visible"
           >
             {/* Status Badge */}
-            <motion.div variants={fadeIn}>
+            {/* <motion.div variants={fadeIn}>
               <HeroStatusBadge />
-            </motion.div>
+            </motion.div> */}
 
             {/* Main Headline - Cinematic Typography */}
             <motion.div
@@ -36,10 +47,10 @@ export function HeroSection() {
               className="space-y-4"
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight" style={{ color: "#f8fafc" }}>
-                Building{" "}
-                <GradientText variant="cyan">intelligent</GradientText>
+                Architecting{" "}
+                <GradientText variant="cyan">scalable systems</GradientText>
                 <br />
-                web experiences.
+                that scale.
               </h1>
             </motion.div>
 
@@ -49,9 +60,11 @@ export function HeroSection() {
               className="text-lg md:text-xl leading-relaxed max-w-2xl"
               style={{ color: "#94a3b8" }}
             >
-              I build scalable{" "}
-              <span className="font-semibold" style={{ color: "#f8fafc" }}>AI-powered systems</span>
-              {" "}and production-grade web architectures that transform complex challenges into elegant engineering solutions.
+              Full-stack engineer specializing in{" "}
+              <span className="font-semibold" style={{ color: "#f8fafc" }}>distributed architectures</span>
+              {" "}and{" "}
+              <span className="font-semibold" style={{ color: "#f8fafc" }}>realtime infrastructure</span>
+              {" "}— building production-grade systems that handle complex engineering challenges at scale.
             </motion.p>
 
             {/* Terminal-Style Role Rotator */}
@@ -67,10 +80,10 @@ export function HeroSection() {
               <span style={{ color: "rgba(6, 182, 212, 0.8)" }}>❯</span>
               <RoleRotator
                 roles={[
-                  "Full Stack Developer",
-                  "AI Systems Engineer",
-                  "MERN Stack Engineer",
-                  "Real-Time Architecture Enthusiast",
+                  "Distributed Systems Engineer",
+                  "Realtime Infrastructure Architect",
+                  "Full-Stack Systems Engineer",
+                  "AI-Powered Platform Developer",
                 ]}
                 typingSpeed={80}
                 deletingSpeed={40}
@@ -79,15 +92,26 @@ export function HeroSection() {
             </motion.div>
 
             {/* CTA System */}
+            {/* CTA System */}
             <motion.div
               variants={fadeIn}
               className="flex flex-wrap items-center gap-4"
             >
-              <GlowButton variant="primary" size="lg">
-                View Projects
+              <GlowButton 
+                variant="primary" 
+                size="lg" 
+                onClick={() => scrollToSection("skills")}
+                aria-label="Navigate to engineering skills and capabilities"
+              >
+                Explore Architecture
               </GlowButton>
-              <GlowButton variant="secondary" size="lg">
-                Contact Me
+              <GlowButton 
+                variant="secondary" 
+                size="lg" 
+                onClick={() => scrollToSection("projects")}
+                aria-label="Navigate to engineering case studies and projects"
+              >
+                View Engineering Case Studies
               </GlowButton>
             </motion.div>
 

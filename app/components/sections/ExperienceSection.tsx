@@ -8,13 +8,13 @@ import { experiences, education } from "@/data/experience";
 export function ExperienceSection() {
   return (
     <section id="experience" className="relative">
-      <div className="mb-12 md:mb-16">
+      <div className="mb-10 md:mb-12">
         <SectionHeader
           title="Engineering Journey"
           eyebrow="Experience & Education"
         />
         <p
-          className="mt-4 text-center text-base md:text-lg max-w-2xl mx-auto"
+          className="mt-3 text-center text-base md:text-lg max-w-2xl mx-auto"
           style={{ color: "#94a3b8" }}
         >
           Building scalable systems and continuously advancing technical expertise.
@@ -32,7 +32,7 @@ export function ExperienceSection() {
         />
 
         {/* Experience items */}
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-6 md:space-y-10">
           {experiences.map((exp, index) => (
             <ExperienceTimelineItem
               key={exp.company}

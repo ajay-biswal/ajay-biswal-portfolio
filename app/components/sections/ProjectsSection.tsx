@@ -22,21 +22,21 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: cinematicEase, delay: index * 0.1 }}
-      className="p-8 rounded-2xl"
+      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.7, ease: cinematicEase, delay: index * 0.12 }}
+      className="p-8 rounded-2xl group"
       style={{
         backgroundColor: "rgba(11, 17, 32, 0.5)",
         border: "1px solid rgba(148, 163, 184, 0.08)",
         backdropFilter: "blur(12px)",
       }}
       whileHover={{
-        y: -4,
-        borderColor: "rgba(168, 85, 247, 0.3)",
-        boxShadow: "0 0 30px rgba(168, 85, 247, 0.1)",
-        transition: { duration: 0.3, ease: cinematicEase },
+        y: -6,
+        borderColor: "rgba(168, 85, 247, 0.35)",
+        boxShadow: "0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(168, 85, 247, 0.12)",
+        transition: { duration: 0.4, ease: cinematicEase },
       }}
     >
       {/* Header */}
@@ -53,11 +53,38 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       </div>
 
       {/* Feature Highlights */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <motion.div 
+        className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.08, delayChildren: 0.1 }
+          }
+        }}
+      >
         {project.challenges.map((challenge, i) => {
           const Icon = iconMap[i % iconMap.length];
           return (
-            <div key={challenge.title} className="flex items-start gap-3">
+            <motion.div 
+              key={challenge.title} 
+              className="flex items-start gap-3"
+              variants={{
+                hidden: { opacity: 0, x: -10 },
+                visible: { 
+                  opacity: 1, 
+                  x: 0,
+                  transition: { duration: 0.5, ease: cinematicEase }
+                }
+              }}
+              whileHover={{
+                x: 4,
+                transition: { duration: 0.2 }
+              }}
+            >
               <div className="p-2 rounded-lg flex-shrink-0" style={{ backgroundColor: "rgba(168, 85, 247, 0.1)" }}>
                 <Icon size={16} style={{ color: "rgba(168, 85, 247, 0.9)" }} />
               </div>
@@ -65,10 +92,10 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 <h5 className="text-sm font-semibold mb-1" style={{ color: "#f8fafc" }}>{challenge.title}</h5>
                 <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>{challenge.description}</p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Metrics */}
       <div className="grid grid-cols-3 gap-4 mb-6 pb-6" style={{ borderBottom: "1px solid rgba(148, 163, 184, 0.08)" }}>
@@ -110,7 +137,7 @@ export function ProjectsSection() {
   const otherProjects = projects.slice(1);
 
   return (
-    <section id="projects" className="relative py-24">
+    <section id="projects" className="relative py-20">
       {/* Atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full" style={{ background: "radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 70%)", filter: "blur(100px)" }} />
@@ -124,12 +151,12 @@ export function ProjectsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: cinematicEase }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: "rgba(11, 17, 32, 0.6)", border: "1px solid rgba(148, 163, 184, 0.1)" }}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: "rgba(11, 17, 32, 0.6)", border: "1px solid rgba(148, 163, 184, 0.1)" }}>
             <span className="text-xs font-semibold tracking-wider uppercase" style={{ color: "rgba(148, 163, 184, 0.9)" }}>ENGINEERING PORTFOLIO</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "#f8fafc" }}>Engineering Case Studies</h2>
+          <h2 className="text-5xl md:text-6xl font-bold mb-3" style={{ color: "#f8fafc" }}>Engineering Case Studies</h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "#64748b" }}>Deep dives into architecture decisions, system design, and engineering tradeoffs.</p>
         </motion.div>
 

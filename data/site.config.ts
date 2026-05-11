@@ -9,13 +9,13 @@ export const siteConfig = {
   responseTime: "< 24 Hours",
   availability: "Available for opportunities",
   social: {
-    github: "https://github.com/ajay-biswal",
+    github: "https://github.com/ajayofficial22",
     twitter: "https://twitter.com",
-    linkedin: "https://www.linkedin.com/in/ajaykumarbiswal",
+    linkedin: "https://linkedin.com/in/ajaykumarbiswal",
     instagram: "https://www.instagram.com",
   },
   navItems: [
-    { label: "About", href: "#about" },
+    { label: "About", href: "#hero" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },

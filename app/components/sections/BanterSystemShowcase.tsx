@@ -169,34 +169,70 @@ export function BanterSystemShowcase() {
 
   return (
     <div className="relative mb-24">
-      {/* Localized atmosphere */}
+      {/* Localized atmosphere with floating animation */}
       <div className="absolute inset-0 pointer-events-none">
-        <div
+        <motion.div
           className="absolute top-1/4 left-1/4 w-[800px] h-[800px] rounded-full"
           style={{
             background: "radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%)",
             filter: "blur(120px)",
           }}
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+            opacity: [0.6, 0.8, 0.6],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
-        <div
+        <motion.div
           className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] rounded-full"
           style={{
             background: "radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 65%)",
             filter: "blur(100px)",
+          }}
+          animate={{
+            x: [0, -25, 0],
+            y: [0, 15, 0],
+            opacity: [0.5, 0.7, 0.5],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Intro */}
-        <BanterIntro />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, ease: cinematicEase }}
+        >
+          <BanterIntro />
+        </motion.div>
 
         {/* Engineering Highlights Grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={cardStagger}
+          viewport={{ once: true, margin: "-50px", amount: 0.1 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.1,
+              },
+            },
+          }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
         >
           {highlights.map((highlight) => {
@@ -204,18 +240,25 @@ export function BanterSystemShowcase() {
             return (
               <motion.div
                 key={highlight.title}
-                variants={fadeIn}
-                className="group p-6 rounded-2xl transition-all duration-300"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.7, ease: cinematicEase },
+                  },
+                }}
+                className="group p-6 rounded-2xl"
                 style={{
                   backgroundColor: "rgba(11, 17, 32, 0.5)",
                   border: "1px solid rgba(148, 163, 184, 0.08)",
                   backdropFilter: "blur(12px)",
                 }}
                 whileHover={{
-                  y: -4,
-                  borderColor: "rgba(6, 182, 212, 0.3)",
-                  boxShadow: "0 0 30px rgba(6, 182, 212, 0.1)",
-                  transition: { duration: 0.3, ease: cinematicEase },
+                  y: -6,
+                  borderColor: "rgba(6, 182, 212, 0.35)",
+                  boxShadow: "0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(6, 182, 212, 0.12)",
+                  transition: { duration: 0.4, ease: cinematicEase },
                 }}
               >
                 {/* Gradient accent line */}
@@ -256,10 +299,10 @@ export function BanterSystemShowcase() {
 
         {/* FULL WIDTH DISTRIBUTED SYSTEM TOPOLOGY */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.0, ease: cinematicEase }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 1.2, ease: cinematicEase }}
           className="relative mt-4"
         >
           {/* Architecture Header */}
@@ -333,10 +376,10 @@ export function BanterSystemShowcase() {
 
         {/* LIVE TELEMETRY */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: cinematicEase }}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.9, ease: cinematicEase }}
           className="mb-12 mt-8"
         >
           <div
@@ -400,8 +443,17 @@ export function BanterSystemShowcase() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={cardStagger}
+          viewport={{ once: true, amount: 0.1 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.12,
+                delayChildren: 0.08,
+              },
+            },
+          }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
         >
           {[
@@ -413,18 +465,26 @@ export function BanterSystemShowcase() {
             return (
               <motion.div
                 key={metric.label}
-                variants={fadeIn}
-                className="p-8 rounded-2xl text-center"
+                variants={{
+                  hidden: { opacity: 0, y: 25, scale: 0.97 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: { duration: 0.7, ease: cinematicEase },
+                  },
+                }}
+                className="p-8 rounded-2xl text-center group"
                 style={{
                   backgroundColor: "rgba(11, 17, 32, 0.6)",
                   border: "1px solid rgba(148, 163, 184, 0.08)",
                   backdropFilter: "blur(12px)",
                 }}
                 whileHover={{
-                  y: -6,
-                  borderColor: "rgba(6, 182, 212, 0.3)",
-                  boxShadow: "0 0 40px rgba(6, 182, 212, 0.15)",
-                  transition: { duration: 0.3, ease: cinematicEase },
+                  y: -8,
+                  borderColor: "rgba(6, 182, 212, 0.4)",
+                  boxShadow: "0 25px 70px rgba(0, 0, 0, 0.5), 0 0 50px rgba(6, 182, 212, 0.15)",
+                  transition: { duration: 0.4, ease: cinematicEase },
                 }}
               >
                 <Icon
