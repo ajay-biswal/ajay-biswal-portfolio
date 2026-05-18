@@ -30,9 +30,9 @@ export function ProjectsSection() {
           transition={{ duration: 0.6, ease: cinematicEase }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: "rgba(11, 17, 32, 0.6)", border: "1px solid rgba(148, 163, 184, 0.1)" }}>
+          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: "rgba(11, 17, 32, 0.6)", border: "1px solid rgba(148, 163, 184, 0.1)" }}>
             <span className="text-xs font-semibold tracking-wider uppercase" style={{ color: "rgba(148, 163, 184, 0.9)" }}>ENGINEERING PORTFOLIO</span>
-          </div>
+          </div> */}
           <h2 className="text-5xl md:text-6xl font-bold mb-3" style={{ color: "#f8fafc" }}>Engineering Case Studies</h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "#64748b" }}>Deep dives into architecture decisions, system design, and engineering tradeoffs.</p>
         </motion.div>

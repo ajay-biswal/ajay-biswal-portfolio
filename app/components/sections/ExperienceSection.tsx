@@ -99,7 +99,7 @@ export function ExperienceSection() {
                           {edu.institute}
                         </p>
                       </div>
-                      <span
+                      {/* <span
                         className="px-3 py-1 rounded-full text-xs font-semibold"
                         style={{
                           backgroundColor: "rgba(148, 163, 184, 0.08)",
@@ -108,7 +108,7 @@ export function ExperienceSection() {
                         }}
                       >
                         {edu.period}
-                      </span>
+                      </span> */}
                     </div>
                     <p
                       className="text-sm md:text-base mt-3"

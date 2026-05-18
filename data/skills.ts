@@ -18,22 +18,22 @@ export const skillCategories: SkillCategory[] = [
     skills: ["Node.js", "Express", "REST APIs", "WebSockets", "JWT Auth", "Docker"],
     accent: "purple",
   },
-  {
-    name: "AI & Automation",
-    philosophy: "Integrating intelligent workflows to automate complex engineering challenges.",
-    skills: ["LangChain", "OpenAI", "GenAI", "AI Agents", "Document Processing", "RAG Systems"],
-    accent: "cyan",
-  },
+  // {
+  //   name: "AI & Automation",
+  //   philosophy: "Integrating intelligent workflows to automate complex engineering challenges.",
+  //   skills: ["LangChain", "OpenAI", "GenAI", "AI Agents", "Document Processing", "RAG Systems"],
+  //   accent: "cyan",
+  // },
   {
     name: "Databases & Infrastructure",
     philosophy: "Managing data persistence and cloud infrastructure for production systems.",
     skills: ["MongoDB", "MySQL", "Firebase", "Redis", "MongoDB Atlas", "Cloud Deployment"],
     accent: "blue",
   },
-  {
-    name: "System Design",
-    philosophy: "Architecting multi-tenant, distributed systems with scalability in mind.",
-    skills: ["Multi-tenancy", "RBAC", "Microservices", "Caching", "Real-time Systems", "Stripe Integration"],
-    accent: "purple",
-  },
+  // {
+  //   name: "System Design",
+  //   philosophy: "Architecting multi-tenant, distributed systems with scalability in mind.",
+  //   skills: ["Multi-tenancy", "RBAC", "Microservices", "Caching", "Real-time Systems", "Stripe Integration"],
+  //   accent: "purple",
+  // },
 ];

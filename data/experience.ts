@@ -26,7 +26,7 @@ export const experiences: Experience[] = [
       "Optimized API response times by 40% through query optimization and caching strategies",
       "Established CI/CD pipelines and developer experience best practices across the team",
     ],
-    technologies: ["Next.js", "Node.js", "MongoDB", "Postgresql", "OpenAI", "Razorpay", "Docker"],
+    technologies: ["Typescript","Next.js", "React.js", "Node.js", "MongoDB", "Postgresql", "Redis", "RabbitMQ", "Docker", "Linux"],
   },
 ];
 

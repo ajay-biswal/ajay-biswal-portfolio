@@ -12,9 +12,7 @@ export function EngineeringStackStrip() {
     "TypeScript",
     "Node.js",
     "MongoDB",
-    "Python",
-    "LangChain",
-    "OpenAI",
+    "Python"
   ];
 
   return (

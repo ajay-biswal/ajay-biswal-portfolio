@@ -22,11 +22,11 @@ export function SocialControlStrip() {
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.7 }}
     >
       <div
-        className="inline-flex items-center gap-1 px-2 py-2 rounded-xl"
+        className="inline-flex items-center gap-3 px-2 py-2 rounded-xl"
         style={{
-          backgroundColor: "rgba(11, 17, 32, 0.6)",
-          border: "1px solid rgba(148, 163, 184, 0.1)",
-          backdropFilter: "blur(12px)",
+          // backgroundColor: "rgba(11, 17, 32, 0.6)",
+          // border: "1px solid rgba(148, 163, 184, 0.1)",
+          // backdropFilter: "blur(12px)",
         }}
       >
         {socials.map((social, index) => {
@@ -51,7 +51,7 @@ export function SocialControlStrip() {
                 e.currentTarget.style.color = "#94a3b8";
               }}
             >
-              <Icon size={16} />
+              <Icon size={25} />
             </a>
           );
         })}

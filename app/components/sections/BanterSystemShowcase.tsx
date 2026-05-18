@@ -554,16 +554,16 @@ export function BanterSystemShowcase() {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mt-12">
-            <GlowButton variant="primary" size="lg">
+            {/* <GlowButton variant="primary" size="lg">
               View Architecture
+            </GlowButton> */}
+            <GlowButton variant="secondary" size="lg" className="border-none bg-none">
+              <Github size={25} className="mr-2" />
+              
             </GlowButton>
-            <GlowButton variant="secondary" size="lg">
-              <Github size={16} className="mr-2" />
-              GitHub Repository
-            </GlowButton>
-            <GlowButton variant="secondary" size="lg">
-              <ExternalLink size={16} className="mr-2" />
-              Live Demo
+            <GlowButton variant="secondary" size="lg" className="border-none">
+              <ExternalLink size={25} className="mr-2" />
+              
             </GlowButton>
           </div>
         </motion.div>
