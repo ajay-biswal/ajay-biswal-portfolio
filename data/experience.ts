@@ -17,16 +17,16 @@ export interface Education {
 export const experiences: Experience[] = [
   {
     company: "Dvika Next-Gen Tech Solutions",
-    role: "Full Stack Developer (MERN & AI)",
+    role: "Full Stack Developer",
     period: "Sept 2025 – April 2026",
-    summary: "Building scalable legal technology solutions with AI integration and modern full-stack architecture.",
+    summary: "Worked on full-stack applications involving backend APIs, real-time communication systems, frontend interfaces, and deployment workflows using Node.js, React.js, Redux Toolkit, Next.js, Redis, and MongoDB.",
     achievements: [
-      "Architected multi-tenant RBAC system supporting 5+ user roles with secure access controls",
-      "Implemented Stripe subscription billing with webhook-based payment reconciliation",
-      "Optimized API response times by 40% through query optimization and caching strategies",
-      "Established CI/CD pipelines and developer experience best practices across the team",
+      "Built tenant-based access control and RBAC workflows for multi-tenant applications",
+      "Developed responsive frontend interfaces using React.js and Next.js and integrated them with backend APIs",
+      "Implemented real-time communication features using Socket.IO and Redis Pub/Sub",
+      "Improved API performance through query optimization and Redis caching",
     ],
-    technologies: ["Typescript","Next.js", "React.js", "Node.js", "MongoDB", "Postgresql", "Redis", "RabbitMQ", "Docker", "Linux"],
+    technologies: ["Typescript","Next.js", "React.js", "Redux", "Node.js","Express.js", "MongoDB", "Postgresql", "Redis", "RabbitMQ", "Docker", "Linux"],
   },
 ];
 
