@@ -30,7 +30,7 @@ export function ProjectsSection() {
           transition={{ duration: 0.6, ease: cinematicEase }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: "rgba(var(--card), 0.6)", border: "1px solid rgba(var(--border), 0.5)" }}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: "rgba(var(--surface), 0.6)", border: "1px solid rgba(var(--border), 0.5)" }}>
             <span className="text-xs font-semibold tracking-wider uppercase" style={{ color: "rgba(148, 163, 184, 0.9)" }}>ENGINEERING PORTFOLIO</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold mb-3" style={{ color: "rgb(var(--foreground))" }}>Engineering Case Studies</h2>

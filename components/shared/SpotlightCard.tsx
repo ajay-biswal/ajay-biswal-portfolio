@@ -46,7 +46,7 @@ export function SpotlightCard({
       onMouseLeave={() => setIsHovering(false)}
       className={cn("relative rounded-2xl overflow-hidden", className)}
       style={{
-        backgroundColor: "rgba(var(--card), 0.6)",
+        backgroundColor: "rgba(var(--surface), 0.6)",
         border: "1px solid rgba(148, 163, 184, 0.1)",
         backdropFilter: "blur(16px)",
         transition: "border-color 0.3s ease, box-shadow 0.3s ease",

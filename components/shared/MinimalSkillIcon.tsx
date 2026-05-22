@@ -84,7 +84,7 @@ export function MinimalSkillIcon({ name, icon: Icon, brandColor, delay = 0 }: Mi
             <div
               className="px-3 py-1.5 rounded-md backdrop-blur-xl border text-xs font-medium whitespace-nowrap"
               style={{
-                backgroundColor: "rgba(var(--card), 0.9)",
+                backgroundColor: "rgba(var(--surface), 0.9)",
                 borderColor: "rgba(6, 182, 212, 0.2)",
                 color: brandColor,
               }}

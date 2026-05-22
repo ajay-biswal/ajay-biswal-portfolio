@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, FileText } from "lucide-react";
-import ThemeToggle from "@/src/components/shared/theme-toggle";
 import {
   HiOutlineUser,
   HiOutlineCodeBracket,
@@ -112,10 +111,11 @@ export function Navbar() {
           width: "88%",
           maxWidth: "1152px",
           height: "64px",
-          backgroundColor: "rgba(var(--background), 0.8)",
+          backgroundColor: "rgba(var(--surface), 0.7)",
           backdropFilter: "blur(24px)",
           border: "1px solid rgba(var(--border), 0.5)",
           borderRadius: "6px",
+          boxShadow: "0 0 30px rgba(0, 0, 0, 0.05)",
         }}
       >
         {/* LEFT SECTION — Brand */}
@@ -124,7 +124,7 @@ export function Navbar() {
             className="h-8 w-8 flex items-center justify-center border text-sm font-bold text-foreground"
             style={{
               borderColor: "rgba(var(--border), 0.8)",
-              backgroundColor: "rgba(var(--card), 0.6)",
+              backgroundColor: "rgba(var(--surface), 0.6)",
             }}
           >
             {siteConfig.initials}
@@ -171,7 +171,7 @@ export function Navbar() {
         <div className="flex items-center gap-4 shrink-0">
           {/* GitHub */}
           <motion.a
-            href="https://github.com/ajayofficial22"
+            href="https://github.com/ajay-biswal"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center"
@@ -203,7 +203,7 @@ export function Navbar() {
 
           {/* Resume Download */}
           <motion.a
-            href="/Ajay_Kumar_Biswal_Resume.pdf"
+            href="/resume/Ajay_Kumar_biswal.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center"
@@ -216,9 +216,6 @@ export function Navbar() {
           >
             <FileText size={18} />
           </motion.a>
-
-          {/* Theme Toggle */}
-          <ThemeToggle />
         </div>
       </motion.nav>
 
@@ -244,7 +241,7 @@ export function Navbar() {
             <div
               className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold text-foreground flex-shrink-0"
               style={{
-                backgroundColor: "rgba(var(--card), 0.8)",
+                backgroundColor: "rgba(var(--surface), 0.8)",
               }}
             >
               {siteConfig.initials}
@@ -282,7 +279,7 @@ export function Navbar() {
             </motion.a>
 
             <motion.a
-              href="/Ajay_Kumar_Biswal_Resume.pdf"
+              href="/resume/Ajay_Kumar_biswal.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg"
@@ -291,9 +288,6 @@ export function Navbar() {
             >
               <FileText size={18} />
             </motion.a>
-
-            {/* Theme Toggle */}
-            <ThemeToggle />
           </div>
         </div>
       </motion.div>

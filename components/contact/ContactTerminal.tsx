@@ -99,7 +99,7 @@ export function ContactTerminal() {
       <div
         className="relative rounded-2xl overflow-hidden"
         style={{
-          backgroundColor: "rgba(var(--card), 0.6)",
+          backgroundColor: "rgba(var(--surface), 0.6)",
           border: "1px solid rgba(148, 163, 184, 0.12)",
           backdropFilter: "blur(20px)",
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)",

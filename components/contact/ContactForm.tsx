@@ -32,7 +32,7 @@ export function ContactForm() {
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <div className="relative">
-          <User className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+          <User className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
           <Input
             id="name"
             name="name"
@@ -40,7 +40,7 @@ export function ContactForm() {
             value={formData.name}
             onChange={handleInputChange}
             required
-            className="h-12 pl-10 text-base rounded-xl border border-slate-200 bg-white/80 placeholder:text-slate-400 placeholder:text-left focus:bg-white focus:border-slate-400 focus:ring-2 focus:ring-slate-300 transition-all duration-200"
+            className="h-12 pl-10 text-base rounded-xl border border-border bg-surface/80 placeholder:text-muted focus:bg-surface focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-200"
           />
         </div>
       </div>
@@ -49,7 +49,7 @@ export function ContactForm() {
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <div className="relative">
-          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
           <Input
             id="email"
             name="email"
@@ -58,7 +58,7 @@ export function ContactForm() {
             value={formData.email}
             onChange={handleInputChange}
             required
-            className="h-12 pl-10 text-base rounded-xl border border-slate-200 bg-white/80 placeholder:text-slate-400 focus:bg-white focus:border-slate-400 focus:ring-2 focus:ring-slate-300 transition-all duration-200"
+            className="h-12 pl-10 text-base rounded-xl border border-border bg-surface/80 placeholder:text-muted focus:bg-surface focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-200"
           />
         </div>
       </div>
@@ -67,7 +67,7 @@ export function ContactForm() {
       <div className="space-y-2">
         <Label htmlFor="phone">Phone</Label>
         <div className="relative">
-          <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+          <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted" />
           <Input
             id="phone"
             name="phone"
@@ -76,7 +76,7 @@ export function ContactForm() {
             value={formData.phone}
             onChange={handleInputChange}
             required
-            className="h-12 pl-10 text-base rounded-xl border border-slate-200 bg-white/80 placeholder:text-slate-400 focus:bg-white focus:border-slate-400 focus:ring-2 focus:ring-slate-300 transition-all duration-200"
+            className="h-12 pl-10 text-base rounded-xl border border-border bg-surface/80 placeholder:text-muted focus:bg-surface focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-200"
           />
         </div>
       </div>
@@ -85,7 +85,7 @@ export function ContactForm() {
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
         <div className="relative">
-          <MessageSquare className="absolute left-4 top-4 h-4 w-4 text-slate-400" />
+          <MessageSquare className="absolute left-4 top-4 h-4 w-4 text-muted" />
           <Textarea
             id="message"
             name="message"
@@ -94,7 +94,7 @@ export function ContactForm() {
             value={formData.message}
             onChange={handleInputChange}
             required
-            className="pl-10 pt-4 text-base rounded-xl border border-slate-200 bg-white/80 placeholder:text-slate-400 focus:bg-white focus:border-slate-400 focus:ring-2 focus:ring-slate-300 transition-all duration-200"
+            className="pl-10 pt-4 text-base rounded-xl border border-border bg-surface/80 placeholder:text-muted focus:bg-surface focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-200"
           />
         </div>
       </div>

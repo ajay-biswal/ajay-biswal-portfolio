@@ -116,7 +116,7 @@ export function ContactSection() {
                 onClick={() => scrollToSection(pill.section)}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm transition-colors cursor-pointer"
                 style={{
-                  backgroundColor: "rgba(var(--card), 0.6)",
+                  backgroundColor: "rgba(var(--surface), 0.6)",
                   border: "1px solid rgba(148, 163, 184, 0.1)",
                   color: "rgba(148, 163, 184, 0.8)",
                 }}
@@ -244,7 +244,7 @@ function TerminalPanel({ isTouchDevice }: { isTouchDevice: boolean }) {
       <div
         className="relative flex items-center gap-3 px-6 py-4"
         style={{
-          backgroundColor: "rgba(var(--card), 0.9)",
+          backgroundColor: "rgba(var(--surface), 0.9)",
           borderBottom: "1px solid rgba(148, 163, 184, 0.08)",
         }}
       >
@@ -371,7 +371,7 @@ function DockCard({ item, index }: { item: { icon: any; label: string; value: st
       whileHover={{ y: -3, borderColor: "rgba(6, 182, 212, 0.25)" }}
       className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors"
       style={{
-        backgroundColor: "rgba(var(--card), 0.5)",
+        backgroundColor: "rgba(var(--surface), 0.5)",
         border: "1px solid rgba(148, 163, 184, 0.08)",
         textDecoration: "none",
       }}

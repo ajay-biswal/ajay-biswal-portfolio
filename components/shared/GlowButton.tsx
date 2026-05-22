@@ -37,7 +37,7 @@ export function GlowButton({
       boxShadow: "0 4px 20px rgba(59, 130, 246, 0.25)",
     },
     secondary: {
-      backgroundColor: "rgba(var(--card), 0.6)",
+      backgroundColor: "rgba(var(--surface), 0.6)",
       backdropFilter: "blur(12px)",
     },
     ghost: {

@@ -162,7 +162,7 @@ export function ProjectCard({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                   style={{
-                    backgroundColor: "rgba(var(--card), 0.8)",
+                    backgroundColor: "rgba(var(--surface), 0.8)",
                     color: "#f8fafc",
                     border: "1px solid rgba(148, 163, 184, 0.15)",
                   }}

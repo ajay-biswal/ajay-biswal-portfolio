@@ -29,7 +29,7 @@ function BanterIntro() {
       <div
         className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
         style={{
-          backgroundColor: "rgba(var(--card), 0.6)",
+          backgroundColor: "rgba(var(--surface), 0.6)",
           border: "1px solid rgba(6, 182, 212, 0.2)",
         }}
       >
@@ -310,7 +310,7 @@ export function BanterSystemShowcase() {
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-3"
               style={{
-                backgroundColor: "rgba(var(--card), 0.6)",
+                backgroundColor: "rgba(var(--surface), 0.6)",
                 border: "1px solid rgba(168, 85, 247, 0.2)",
               }}
             >
@@ -476,7 +476,7 @@ export function BanterSystemShowcase() {
                 }}
                 className="p-8 rounded-2xl text-center group"
                 style={{
-                  backgroundColor: "rgba(var(--card), 0.6)",
+                  backgroundColor: "rgba(var(--surface), 0.6)",
                   border: "1px solid rgba(148, 163, 184, 0.08)",
                   backdropFilter: "blur(12px)",
                 }}

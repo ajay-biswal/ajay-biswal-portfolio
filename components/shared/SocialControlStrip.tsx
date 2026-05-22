@@ -13,7 +13,7 @@ export function SocialControlStrip() {
     { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
     { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
     { icon: Mail, href: `mailto:${siteConfig.email}`, label: "Email" },
-    { icon: FileText, href: "/Ajay_Kumar_Biswal_Resume.pdf", label: "Resume", external: true },
+    { icon: FileText, href: "/resume/Ajay_Kumar_biswal.pdf", label: "Resume", external: true },
   ];
 
   return (
@@ -61,7 +61,7 @@ export function SocialControlStrip() {
               <span
                 className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 rounded text-[10px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
                 style={{
-                  backgroundColor: "rgba(var(--card), 0.9)",
+                  backgroundColor: "rgba(var(--surface), 0.9)",
                   color: "#f8fafc",
                   border: "1px solid rgba(148, 163, 184, 0.1)",
                 }}

@@ -19,9 +19,9 @@ export function TypewriterText() {
 
   return (
     <span className="inline-flex items-baseline gap-1">
-      <span className="text-slate-900 font-semibold">{text}</span>
+      <span className="text-foreground font-semibold">{text}</span>
       {/* caret */}
-      <span className="h-6 w-[2px] translate-y-[3px] bg-slate-900 animate-pulse sm:h-7" />
+      <span className="h-6 w-[2px] translate-y-[3px] bg-foreground animate-pulse sm:h-7" />
     </span>
   );
 }

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { cn } from "@/lib/utils";
-import ThemeProvider from "@/src/components/providers/theme-provider";
 import { CursorGlow } from "@/components/shared/CursorGlow";
 
 // Configure Inter for body text
@@ -22,6 +21,10 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Ajay Kumar Biswal | Full Stack Developer",
   description: "Portfolio of Ajay Kumar Biswal, a Full Stack MERN & AI Developer",
+  icons: {
+    icon: "/ajaybiswal.png",
+    apple: "/ajaybiswal.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body
         className={cn(
           "min-h-screen font-sans antialiased",
@@ -39,10 +42,8 @@ export default function RootLayout({
           spaceGrotesk.variable
         )}
       >
-        <ThemeProvider>
-          {children}
-          <CursorGlow />
-        </ThemeProvider>
+        {children}
+        <CursorGlow />
       </body>
     </html>
   );

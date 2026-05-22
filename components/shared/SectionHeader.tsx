@@ -18,7 +18,7 @@ export function SectionHeader({ title, eyebrow }: { title: string; eyebrow: stri
       <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         {title}
       </h2>
-      <div className="mx-auto h-1 w-20 rounded-full bg-slate-900"></div>
+      <div className="mx-auto h-1 w-20 rounded-full bg-border"></div>
     </div>
   );
 }

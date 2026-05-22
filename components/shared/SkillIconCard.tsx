@@ -56,7 +56,7 @@ export function SkillIconCard({ name, icon: Icon, tooltip, level, delay = 0 }: S
           stiffness: 400,
           damping: 17,
         }}
-        className="relative w-[90px] h-[90px] flex flex-col items-center justify-center gap-2 rounded-xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm cursor-pointer overflow-hidden"
+        className="relative w-[90px] h-[90px] flex flex-col items-center justify-center gap-2 rounded-xl bg-surface/[0.02] border border-border/[0.05] backdrop-blur-sm cursor-pointer overflow-hidden"
         style={{
           boxShadow: isHovered ? `0 0 30px ${levelGlow[level]}` : "none",
           borderColor: isHovered ? levelColors[level] : "rgba(255, 255, 255, 0.05)",
@@ -118,7 +118,7 @@ export function SkillIconCard({ name, icon: Icon, tooltip, level, delay = 0 }: S
             }}
             className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50 pointer-events-none"
           >
-            <div className="relative px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] backdrop-blur-md shadow-xl">
+            <div className="relative px-3 py-2 rounded-lg bg-surface/[0.03] border border-border/[0.08] backdrop-blur-md shadow-xl">
               {/* Tooltip content */}
               <div className="flex flex-col gap-0.5 min-w-[140px]">
                 <span className="text-xs font-semibold" style={{ color: levelColors[level] }}>
@@ -130,7 +130,7 @@ export function SkillIconCard({ name, icon: Icon, tooltip, level, delay = 0 }: S
               </div>
 
               {/* Tooltip arrow */}
-              <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white/[0.03] border-r border-b border-white/[0.08] rotate-45" />
+              <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-surface/[0.03] border-r border-b border-border/[0.08] rotate-45" />
             </div>
           </motion.div>
         )}

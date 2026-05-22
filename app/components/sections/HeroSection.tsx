@@ -72,7 +72,7 @@ export function HeroSection() {
               variants={fadeIn}
               className="inline-flex items-center gap-3 px-4 py-3 rounded-lg"
               style={{
-                backgroundColor: "rgba(var(--card), 0.6)",
+                backgroundColor: "rgba(var(--surface), 0.6)",
                 border: "1px solid rgba(var(--border), 0.5)",
                 fontFamily: "monospace",
               }}
