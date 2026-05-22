@@ -13,7 +13,7 @@ export function SocialControlStrip() {
     { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
     { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
     { icon: Mail, href: `mailto:${siteConfig.email}`, label: "Email" },
-    { icon: FileText, href: "/resume/Ajay_Kumar_biswal.pdf", label: "Resume", external: true },
+    { icon: FileText, href: "/resume/AjayBiswal_FullStack_Developer.pdf", label: "Resume", external: true },
   ];
 
   return (

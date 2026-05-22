@@ -203,7 +203,7 @@ export function Navbar() {
 
           {/* Resume Download */}
           <motion.a
-            href="/resume/Ajay_Kumar_biswal.pdf"
+            href="/resume/AjayBiswal_FullStack_Developer.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center"
@@ -257,7 +257,7 @@ export function Navbar() {
           {/* RIGHT — Quick Actions */}
           <div className="flex items-center gap-2">
             <motion.a
-              href="https://github.com/ajayofficial22"
+              href="https://github.com/ajay-biswal"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg"
@@ -279,7 +279,7 @@ export function Navbar() {
             </motion.a>
 
             <motion.a
-              href="/resume/Ajay_Kumar_biswal.pdf"
+              href="/resume/AjayBiswal_FullStack_Developer.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg"

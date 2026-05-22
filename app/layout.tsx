@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   description: "Portfolio of Ajay Kumar Biswal, a Full Stack MERN & AI Developer",
   icons: {
     icon: "/ajaybiswal.png",
+    shortcut: "/ajaybiswal.png",
     apple: "/ajaybiswal.png",
   },
 };
