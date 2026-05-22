@@ -26,9 +26,9 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-28 md:pt-32 lg:pt-36 overflow-hidden"
+      className="relative min-h-[100dvh] lg:min-h-screen flex items-center mt-0 lg:mt-0 pt-14 md:pt-16 lg:pt-20 overflow-hidden scroll-mb-32"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+      <div className="mx-auto max-w-full px-5 sm:px-6 md:px-8 w-full overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* LEFT SIDE - Identity Content (7 columns) */}
           <motion.div
@@ -47,7 +47,7 @@ export function HeroSection() {
               variants={fadeIn}
               className="space-y-4"
             >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight" style={{ color: "#f8fafc" }}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight break-words" style={{ color: "#f8fafc" }}>
                 Architecting{" "}
                 <GradientText variant="cyan">scalable systems</GradientText>
                 <br />
@@ -58,7 +58,7 @@ export function HeroSection() {
             {/* Engineering Identity Statement */}
             <motion.p
               variants={fadeIn}
-              className="text-lg md:text-xl leading-relaxed max-w-2xl"
+              className="text-lg md:text-xl leading-relaxed max-w-2xl break-words"
               style={{ color: "#94a3b8" }}
             >
               Full-stack engineer specializing in{" "}

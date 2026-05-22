@@ -13,7 +13,7 @@ import { EngineeringGrid } from "@/components/shared/EngineeringGrid";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen antialiased lg:pt-0 pt-16">
+    <div className="relative min-h-[100dvh] antialiased overflow-x-hidden">
       {/* Engineering grid system */}
       <EngineeringGrid />
       
@@ -25,12 +25,12 @@ export default function HomePage() {
 
       <Navbar />
 
-      <main>
+      <main className="relative z-10 pt-14 lg:pt-0 pb-36 lg:pb-0">
         {/* Hero Section - Full viewport */}
         <HeroSection />
         
         {/* Content Sections - Optimized spacing */}
-        <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 sm:pt-12 lg:px-8 space-y-12 md:space-y-16">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 pb-12 pt-8 sm:pt-12 space-y-12 md:space-y-16">
           <SkillsSection />
           
           <ProjectsSection />

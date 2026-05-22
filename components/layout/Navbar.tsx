@@ -245,23 +245,24 @@ export function Navbar() {
       {/* MOBILE TOP BAR (< lg) */}
       {/* ======================================== */}
       <motion.div
-        className="lg:hidden fixed top-0 left-0 right-0 z-50"
+        className="lg:hidden fixed top-0 left-0 right-0 z-[9999]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <div
-          className="flex items-center justify-between px-4 h-16 border-b backdrop-blur-xl"
+          className="flex items-center justify-between px-4 py-2 backdrop-blur-xl"
           style={{
-            backgroundColor: "rgba(5, 8, 22, 0.85)",
-            borderColor: "rgba(255, 255, 255, 0.05)",
+            height: "56px",
+            backgroundColor: "rgba(5, 8, 22, 0.9)",
+            borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
             boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
           }}
         >
           {/* LEFT — Identity */}
           <div className="flex items-center gap-2">
             <div
-              className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white"
+              className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold text-white flex-shrink-0"
               style={{
                 backgroundColor: "rgba(11, 17, 32, 0.8)",
                 boxShadow: "0 0 20px rgba(6, 182, 212, 0.15)",
@@ -269,11 +270,11 @@ export function Navbar() {
             >
               {siteConfig.initials}
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-medium text-zinc-100 leading-tight">
+            <div className="flex items-center gap-1 whitespace-nowrap">
+              <span className="text-sm font-medium text-zinc-100">
                 {siteConfig.name}
               </span>
-              <span className="text-[10px] text-zinc-500 font-mono">&lt;/&gt;</span>
+              <span className="text-xs text-zinc-500 font-mono opacity-50">&lt;/&gt;</span>
             </div>
           </div>
 
@@ -319,7 +320,7 @@ export function Navbar() {
       {/* MOBILE BOTTOM DOCK NAVIGATION (< lg) */}
       {/* ======================================== */}
       <motion.div
-        className="lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50"
+        className="lg:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-[9999]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ 
           opacity: 1, 
@@ -333,8 +334,11 @@ export function Navbar() {
         }}
       >
         <div
-          className="flex items-center gap-1 px-4 py-3 rounded-full border backdrop-blur-xl shadow-2xl"
+          className="flex items-center justify-around gap-1 px-2 py-1 rounded-2xl border backdrop-blur-xl shadow-2xl"
           style={{
+            width: "92%",
+            maxWidth: "320px",
+            height: "64px",
             backgroundColor: "rgba(5, 8, 22, 0.9)",
             borderColor: "rgba(255, 255, 255, 0.08)",
             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
@@ -349,7 +353,10 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="relative flex flex-col items-center justify-center px-3 py-1.5 rounded-xl transition-all duration-300"
+                className="relative flex flex-col items-center justify-center rounded-xl transition-all duration-300"
+                style={{
+                  minWidth: "52px",
+                }}
                 animate={{
                   scale: isActive ? 1.05 : 1,
                 }}
@@ -360,18 +367,19 @@ export function Navbar() {
                 <motion.div
                   style={{
                     color: isActive ? "rgba(103, 232, 249, 0.9)" : "rgba(161, 161, 170, 0.6)",
+                    fontSize: "16px",
                   }}
                   animate={{
                     boxShadow: isActive ? "0 0 12px rgba(6, 182, 212, 0.3)" : "none",
                   }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Icon size={22} />
+                  <Icon size={16} />
                 </motion.div>
 
                 {/* Label */}
                 <span
-                  className="text-[10px] mt-1 font-medium"
+                  className="text-[10px] mt-0.5 font-medium"
                   style={{
                     color: isActive ? "rgba(103, 232, 249, 0.9)" : "rgba(161, 161, 170, 0.5)",
                   }}

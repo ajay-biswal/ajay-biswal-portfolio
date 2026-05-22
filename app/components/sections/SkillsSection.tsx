@@ -6,7 +6,7 @@ import { skills } from "@/data/skills";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="relative py-16 md:py-20">
+    <section id="skills" className="relative py-16 md:py-20 scroll-mb-32">
       {/* Background atmosphere */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div

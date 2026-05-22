@@ -40,7 +40,7 @@ export function ContactSection() {
   const dockItemsRef = dockItems; // Make available in scope
 
   return (
-    <section id="contact" className="relative py-20 overflow-hidden">
+    <section id="contact" className="relative py-20 overflow-hidden scroll-mb-32">
       {/* Background atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Grid pattern */}

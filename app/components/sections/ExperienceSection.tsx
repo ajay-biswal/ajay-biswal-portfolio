@@ -7,7 +7,7 @@ import { experiences, education } from "@/data/experience";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="relative">
+    <section id="experience" className="relative scroll-mb-32">
       <div className="mb-10 md:mb-12">
         <SectionHeader
           title="Engineering Journey"
