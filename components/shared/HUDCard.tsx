@@ -52,7 +52,7 @@ export function HUDCard({ label, value, position, delay }: HUDCardProps) {
       <div
         className="px-3 py-2 md:px-4 md:py-2.5 rounded-lg backdrop-blur-xl"
         style={{
-          backgroundColor: "rgba(11, 17, 32, 0.7)",
+          backgroundColor: "rgba(var(--card), 0.7)",
           border: "1px solid rgba(148, 163, 184, 0.12)",
           boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
         }}

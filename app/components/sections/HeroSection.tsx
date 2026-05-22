@@ -26,9 +26,9 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] lg:min-h-screen flex items-center mt-0 lg:mt-0 pt-14 md:pt-16 lg:pt-20 overflow-hidden scroll-mb-32"
+      className="relative min-h-[100dvh] lg:min-h-screen flex items-center mt-0 pt-14 lg:pt-32 overflow-hidden scroll-mb-32"
     >
-      <div className="mx-auto max-w-full px-5 sm:px-6 md:px-8 w-full overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* LEFT SIDE - Identity Content (7 columns) */}
           <motion.div
@@ -47,7 +47,7 @@ export function HeroSection() {
               variants={fadeIn}
               className="space-y-4"
             >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight break-words" style={{ color: "#f8fafc" }}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight break-words text-foreground">
                 Architecting{" "}
                 <GradientText variant="cyan">scalable systems</GradientText>
                 <br />
@@ -58,13 +58,12 @@ export function HeroSection() {
             {/* Engineering Identity Statement */}
             <motion.p
               variants={fadeIn}
-              className="text-lg md:text-xl leading-relaxed max-w-2xl break-words"
-              style={{ color: "#94a3b8" }}
+              className="text-lg md:text-xl leading-relaxed max-w-2xl break-words text-muted"
             >
               Full-stack engineer specializing in{" "}
-              <span className="font-semibold" style={{ color: "#f8fafc" }}>distributed architectures</span>
+              <span className="font-semibold text-foreground">distributed architectures</span>
               {" "}and{" "}
-              <span className="font-semibold" style={{ color: "#f8fafc" }}>realtime infrastructure</span>
+              <span className="font-semibold text-foreground">realtime infrastructure</span>
               {" "}— building production-grade systems that handle complex engineering challenges at scale.
             </motion.p>
 
@@ -73,12 +72,12 @@ export function HeroSection() {
               variants={fadeIn}
               className="inline-flex items-center gap-3 px-4 py-3 rounded-lg"
               style={{
-                backgroundColor: "rgba(11, 17, 32, 0.6)",
-                border: "1px solid rgba(148, 163, 184, 0.1)",
+                backgroundColor: "rgba(var(--card), 0.6)",
+                border: "1px solid rgba(var(--border), 0.5)",
                 fontFamily: "monospace",
               }}
             >
-              <span style={{ color: "rgba(6, 182, 212, 0.8)" }}>❯</span>
+              <span className="text-cyan-500">❯</span>
               <RoleRotator
                 roles={[
                   "Distributed Systems Engineer",

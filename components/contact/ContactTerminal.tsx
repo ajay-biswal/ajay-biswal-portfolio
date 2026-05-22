@@ -99,7 +99,7 @@ export function ContactTerminal() {
       <div
         className="relative rounded-2xl overflow-hidden"
         style={{
-          backgroundColor: "rgba(11, 17, 32, 0.6)",
+          backgroundColor: "rgba(var(--card), 0.6)",
           border: "1px solid rgba(148, 163, 184, 0.12)",
           backdropFilter: "blur(20px)",
           boxShadow: "0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)",
@@ -222,7 +222,7 @@ export function ContactTerminal() {
             disabled={isSubmitting}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-4 px-6 rounded-lg font-semibold text-white flex items-center justify-center gap-3 transition-all duration-300"
+            className="w-full py-4 px-6 rounded-lg font-semibold text-foreground flex items-center justify-center gap-3 transition-all duration-300"
             style={{
               background: "linear-gradient(135deg, rgba(6, 182, 212, 0.9), rgba(59, 130, 246, 0.9))",
               boxShadow: "0 4px 20px rgba(6, 182, 212, 0.25)",

@@ -46,7 +46,7 @@ export function ExperienceTimelineItem({
       <div
         className="rounded-2xl p-6 md:p-8"
         style={{
-          backgroundColor: "rgba(11, 17, 32, 0.6)",
+          backgroundColor: "rgba(var(--card), 0.6)",
           border: "1px solid rgba(148, 163, 184, 0.1)",
           backdropFilter: "blur(16px)",
         }}

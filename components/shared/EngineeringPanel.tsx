@@ -43,7 +43,7 @@ export function EngineeringPanel({ imageUrl, imageAlt }: EngineeringPanelProps) 
         style={{
           border: "1px solid rgba(148, 163, 184, 0.1)",
           boxShadow: `
-            0 0 0 1px rgba(11, 17, 32, 0.5),
+            0 0 0 1px rgba(var(--border), 0.5),
             0 20px 60px rgba(0, 0, 0, 0.6),
             0 0 40px rgba(59, 130, 246, 0.08)
           `,
@@ -53,7 +53,7 @@ export function EngineeringPanel({ imageUrl, imageAlt }: EngineeringPanelProps) 
         <div
           className="flex items-center gap-2 px-4 py-3"
           style={{
-            backgroundColor: "rgba(11, 17, 32, 0.95)",
+            backgroundColor: "rgba(var(--card), 0.95)",
             borderBottom: "1px solid rgba(148, 163, 184, 0.08)",
           }}
         >

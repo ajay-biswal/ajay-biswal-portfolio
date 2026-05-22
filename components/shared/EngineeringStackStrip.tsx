@@ -37,7 +37,7 @@ export function EngineeringStackStrip() {
               transition={{ delay: 0.8 + index * 0.05, duration: 0.3 }}
               className="px-3 py-1.5 rounded-md text-xs font-medium"
               style={{
-                backgroundColor: "rgba(11, 17, 32, 0.6)",
+                backgroundColor: "rgba(var(--card), 0.6)",
                 color: "#94a3b8",
                 border: "1px solid rgba(148, 163, 184, 0.1)",
               }}

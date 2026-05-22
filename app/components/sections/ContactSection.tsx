@@ -40,7 +40,7 @@ export function ContactSection() {
   const dockItemsRef = dockItems; // Make available in scope
 
   return (
-    <section id="contact" className="relative py-20 overflow-hidden scroll-mb-32">
+    <section id="contact" className="relative py-16 lg:py-24 overflow-hidden scroll-mb-32">
       {/* Background atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Grid pattern */}
@@ -88,7 +88,7 @@ export function ContactSection() {
           </div>
 
           {/* Main heading */}
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 font-mono" style={{ color: "#f8fafc" }}>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 font-mono" style={{ color: "rgb(var(--foreground))" }}>
             Quick Terminal
             <motion.span
               animate={{ opacity: [1, 0] }}
@@ -116,7 +116,7 @@ export function ContactSection() {
                 onClick={() => scrollToSection(pill.section)}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-sm transition-colors cursor-pointer"
                 style={{
-                  backgroundColor: "rgba(11, 17, 32, 0.6)",
+                  backgroundColor: "rgba(var(--card), 0.6)",
                   border: "1px solid rgba(148, 163, 184, 0.1)",
                   color: "rgba(148, 163, 184, 0.8)",
                 }}
@@ -244,7 +244,7 @@ function TerminalPanel({ isTouchDevice }: { isTouchDevice: boolean }) {
       <div
         className="relative flex items-center gap-3 px-6 py-4"
         style={{
-          backgroundColor: "rgba(11, 17, 32, 0.9)",
+          backgroundColor: "rgba(var(--card), 0.9)",
           borderBottom: "1px solid rgba(148, 163, 184, 0.08)",
         }}
       >
@@ -371,7 +371,7 @@ function DockCard({ item, index }: { item: { icon: any; label: string; value: st
       whileHover={{ y: -3, borderColor: "rgba(6, 182, 212, 0.25)" }}
       className="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors"
       style={{
-        backgroundColor: "rgba(11, 17, 32, 0.5)",
+        backgroundColor: "rgba(var(--card), 0.5)",
         border: "1px solid rgba(148, 163, 184, 0.08)",
         textDecoration: "none",
       }}

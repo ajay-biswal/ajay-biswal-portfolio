@@ -29,7 +29,7 @@ function BanterIntro() {
       <div
         className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6"
         style={{
-          backgroundColor: "rgba(11, 17, 32, 0.6)",
+          backgroundColor: "rgba(var(--card), 0.6)",
           border: "1px solid rgba(6, 182, 212, 0.2)",
         }}
       >
@@ -51,7 +51,7 @@ function BanterIntro() {
       {/* Title */}
       <h2
         className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight"
-        style={{ color: "#f8fafc" }}
+        style={{ color: "rgb(var(--foreground))" }}
       >
         Banter
       </h2>
@@ -59,7 +59,7 @@ function BanterIntro() {
       {/* Subtitle */}
       <h3
         className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6"
-        style={{ color: "#94a3b8" }}
+        style={{ color: "rgb(var(--muted))" }}
       >
         Distributed Real-Time Messaging Infrastructure
       </h3>
@@ -67,7 +67,7 @@ function BanterIntro() {
       {/* Description */}
       <p
         className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-        style={{ color: "#64748b" }}
+        style={{ color: "rgb(var(--muted))" }}
       >
         Scalable websocket orchestration platform with event-driven architecture,
         Redis-backed horizontal scaling, and low-latency realtime synchronization.
@@ -280,13 +280,13 @@ export function BanterSystemShowcase() {
                   <div>
                     <h4
                       className="text-base font-semibold mb-2"
-                      style={{ color: "#f8fafc" }}
+                      style={{ color: "rgb(var(--foreground))" }}
                     >
                       {highlight.title}
                     </h4>
                     <p
                       className="text-sm leading-relaxed"
-                      style={{ color: "#94a3b8" }}
+                      style={{ color: "rgb(var(--muted))" }}
                     >
                       {highlight.description}
                     </p>
@@ -310,7 +310,7 @@ export function BanterSystemShowcase() {
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-3"
               style={{
-                backgroundColor: "rgba(11, 17, 32, 0.6)",
+                backgroundColor: "rgba(var(--card), 0.6)",
                 border: "1px solid rgba(168, 85, 247, 0.2)",
               }}
             >
@@ -323,13 +323,13 @@ export function BanterSystemShowcase() {
             </div>
             <h3
               className="text-4xl md:text-5xl font-bold mb-2"
-              style={{ color: "#f8fafc" }}
+              style={{ color: "rgb(var(--foreground))" }}
             >
               Banter Realtime Infrastructure
             </h3>
             <p
               className="text-lg max-w-3xl mx-auto"
-              style={{ color: "#64748b" }}
+              style={{ color: "rgb(var(--muted))" }}
             >
               Production-grade websocket orchestration with Redis-backed scaling,
               distributed event pipelines, and realtime synchronization.
@@ -476,7 +476,7 @@ export function BanterSystemShowcase() {
                 }}
                 className="p-8 rounded-2xl text-center group"
                 style={{
-                  backgroundColor: "rgba(11, 17, 32, 0.6)",
+                  backgroundColor: "rgba(var(--card), 0.6)",
                   border: "1px solid rgba(148, 163, 184, 0.08)",
                   backdropFilter: "blur(12px)",
                 }}
@@ -503,7 +503,7 @@ export function BanterSystemShowcase() {
                 </div>
                 <div
                   className="text-base"
-                  style={{ color: "#94a3b8" }}
+                  style={{ color: "rgb(var(--muted))" }}
                 >
                   {metric.label}
                 </div>

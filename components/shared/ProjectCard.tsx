@@ -162,7 +162,7 @@ export function ProjectCard({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                   style={{
-                    backgroundColor: "rgba(11, 17, 32, 0.8)",
+                    backgroundColor: "rgba(var(--card), 0.8)",
                     color: "#f8fafc",
                     border: "1px solid rgba(148, 163, 184, 0.15)",
                   }}
@@ -182,7 +182,7 @@ export function ProjectCard({
                   href={live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-foreground transition-all duration-200"
                   style={{
                     background: "linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(168, 85, 247, 0.85))",
                   }}

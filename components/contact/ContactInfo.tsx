@@ -47,7 +47,7 @@ export function ContactInfo() {
         transition={{ delay: 0.2 }}
         className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
         style={{
-          backgroundColor: "rgba(11, 17, 32, 0.6)",
+          backgroundColor: "rgba(var(--card), 0.6)",
           border: "1px solid rgba(6, 182, 212, 0.2)",
           backdropFilter: "blur(12px)",
         }}
@@ -110,7 +110,7 @@ export function ContactInfo() {
               transition={{ delay: 0.5 + index * 0.1 }}
               className="group p-4 rounded-lg transition-all duration-300"
               style={{
-                backgroundColor: "rgba(11, 17, 32, 0.5)",
+                backgroundColor: "rgba(var(--card), 0.5)",
                 border: "1px solid rgba(148, 163, 184, 0.08)",
                 backdropFilter: "blur(12px)",
               }}
@@ -198,7 +198,7 @@ export function ContactInfo() {
               whileHover={{ y: -4, scale: 1.1 }}
               className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: "rgba(11, 17, 32, 0.6)",
+                backgroundColor: "rgba(var(--card), 0.6)",
                 border: "1px solid rgba(148, 163, 184, 0.1)",
                 color: "#94a3b8",
               }}
@@ -209,7 +209,7 @@ export function ContactInfo() {
                 e.currentTarget.style.boxShadow = "0 0 20px rgba(6, 182, 212, 0.2)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(11, 17, 32, 0.6)";
+                e.currentTarget.style.backgroundColor = "rgba(var(--card), 0.6)";
                 e.currentTarget.style.borderColor = "rgba(148, 163, 184, 0.1)";
                 e.currentTarget.style.color = "#94a3b8";
                 e.currentTarget.style.boxShadow = "none";

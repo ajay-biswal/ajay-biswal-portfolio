@@ -124,7 +124,7 @@ export function TechMarquee() {
       <div
         className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
         style={{
-          background: "linear-gradient(to right, rgba(5, 8, 22, 1) 0%, transparent 100%)",
+          background: "linear-gradient(to right, rgb(var(--background)) 0%, transparent 100%)",
         }}
       />
 
@@ -137,7 +137,7 @@ export function TechMarquee() {
       <div
         className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
         style={{
-          background: "linear-gradient(to left, rgba(5, 8, 22, 1) 0%, transparent 100%)",
+          background: "linear-gradient(to left, rgb(var(--background)) 0%, transparent 100%)",
         }}
       />
     </div>

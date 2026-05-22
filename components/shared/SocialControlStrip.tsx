@@ -61,7 +61,7 @@ export function SocialControlStrip() {
               <span
                 className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 rounded text-[10px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
                 style={{
-                  backgroundColor: "rgba(11, 17, 32, 0.9)",
+                  backgroundColor: "rgba(var(--card), 0.9)",
                   color: "#f8fafc",
                   border: "1px solid rgba(148, 163, 184, 0.1)",
                 }}

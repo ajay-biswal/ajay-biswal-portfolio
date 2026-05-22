@@ -27,7 +27,7 @@ export function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block px-2.5 py-1 rounded-full border border-white/[0.08] backdrop-blur-sm"
+            className="inline-block px-2.5 py-1 rounded-full border border-border/30 backdrop-blur-sm"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.02)" }}
           >
             <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: "#06B6D4" }}>
@@ -42,7 +42,7 @@ export function SkillsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
-            style={{ color: "#f8fafc" }}
+            style={{ color: "rgb(var(--foreground))" }}
           >
             Skills
           </motion.h2>
@@ -54,7 +54,7 @@ export function SkillsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-sm md:text-base max-w-lg mx-auto"
-            style={{ color: "#94a3b8" }}
+            style={{ color: "rgb(var(--muted))" }}
           >
             The technologies I build with.
           </motion.p>
@@ -88,7 +88,7 @@ export function SkillsSection() {
           >
             <span
               className="text-[11px] font-mono"
-              style={{ color: "#64748b" }}
+              style={{ color: "rgb(var(--muted))" }}
             >
               &lt;&gt; {skills.length}+ technologies in daily workflow
             </span>

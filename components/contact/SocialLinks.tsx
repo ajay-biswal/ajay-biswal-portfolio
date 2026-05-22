@@ -40,7 +40,7 @@ export function SocialLinks() {
             target="_blank"
             rel="noreferrer"
             aria-label={social.ariaLabel}
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-white transition-all hover:bg-slate-800 hover:shadow-lg"
+            className="flex h-12 w-12 items-center justify-center rounded-full bg-card text-foreground transition-all hover:bg-card/80 hover:shadow-lg"
           >
             <Icon className="h-5 w-5" />
           </a>

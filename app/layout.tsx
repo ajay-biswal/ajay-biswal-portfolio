@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/app/context/ThemeContext";
+import ThemeProvider from "@/src/components/providers/theme-provider";
 import { CursorGlow } from "@/components/shared/CursorGlow";
 
 // Configure Inter for body text
@@ -30,10 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen font-sans antialiased",
           "overflow-x-hidden",
           inter.variable,
           spaceGrotesk.variable

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, FileText } from "lucide-react";
+import ThemeToggle from "@/src/components/shared/theme-toggle";
 import {
   HiOutlineUser,
   HiOutlineCodeBracket,
@@ -103,142 +104,122 @@ export function Navbar() {
       {/* DESKTOP NAVBAR (lg and above) */}
       {/* ======================================== */}
       <motion.nav
-        className="hidden lg:block fixed top-4 lg:top-6 left-1/2 -translate-x-1/2 z-50"
+        className="hidden lg:flex fixed top-6 left-1/2 -translate-x-1/2 z-50 items-center justify-between px-6 overflow-hidden"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          width: "88%",
+          maxWidth: "1152px",
+          height: "64px",
+          backgroundColor: "rgba(var(--background), 0.8)",
+          backdropFilter: "blur(24px)",
+          border: "1px solid rgba(var(--border), 0.5)",
+          borderRadius: "6px",
+        }}
       >
-        <motion.div
-          animate={{
-            padding: isScrolled ? "0.625rem 1.25rem" : "0.75rem 1.5rem",
-            backgroundColor: isScrolled ? "rgba(5, 8, 22, 0.92)" : "rgba(5, 8, 22, 0.85)",
-            backdropFilter: isScrolled ? "blur(24px)" : "blur(20px)",
-          }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center justify-between gap-8 rounded-xl border shadow-2xl"
-          style={{
-            maxWidth: "1280px",
-            width: "calc(100vw - 2rem)",
-            borderColor: "rgba(255, 255, 255, 0.05)",
-            boxShadow: "0 10px 50px rgba(0, 0, 0, 0.45)",
-            background: "linear-gradient(135deg, rgba(5, 8, 22, 0.85) 0%, rgba(5, 8, 22, 0.85) 100%)",
-          }}
-        >
-          {/* Subtle ambient gradient overlay */}
+        {/* LEFT SECTION — Brand */}
+        <div className="flex items-center gap-4 shrink-0">
           <div
-            className="absolute inset-0 rounded-2xl pointer-events-none opacity-30"
+            className="h-8 w-8 flex items-center justify-center border text-sm font-bold text-foreground"
             style={{
-              background: "linear-gradient(90deg, rgba(6, 182, 212, 0.03) 0%, transparent 50%, rgba(168, 85, 247, 0.03) 100%)",
+              borderColor: "rgba(var(--border), 0.8)",
+              backgroundColor: "rgba(var(--card), 0.6)",
             }}
-          />
-
-          {/* LEFT SECTION — Brand */}
-          <div className="relative flex items-center gap-3">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white relative"
-              style={{
-                backgroundColor: "rgba(11, 17, 32, 0.8)",
-                boxShadow: "0 0 20px rgba(6, 182, 212, 0.15)",
-              }}
-            >
-              {siteConfig.initials}
-            </motion.div>
-            <Link href="/" className="flex items-center gap-1.5">
-              <span className="text-sm font-medium tracking-tight text-zinc-100">
-                {siteConfig.name}
-              </span>
-              <span className="text-xs text-zinc-500 font-mono">&lt;/&gt;</span>
-            </Link>
+          >
+            {siteConfig.initials}
           </div>
 
-          {/* CENTER SECTION — Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {siteConfig.navItems.map((item) => {
-              const isActive = activeSection === item.href;
-              return (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className="relative text-sm font-medium transition-colors duration-300"
-                  style={{
-                    color: isActive ? "rgba(255, 255, 255, 0.95)" : "rgba(161, 161, 170, 0.8)",
-                  }}
-                  whileHover={{
-                    color: "rgba(103, 232, 249, 0.9)",
-                  }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  {item.label}
-                  {/* Active indicator */}
-                  <motion.div
+          <div className="flex items-center gap-2 whitespace-nowrap">
+            <span className="text-sm font-semibold text-foreground">
+              {siteConfig.name}
+            </span>
+            <span className="text-xs text-muted/60">&lt;/&gt;</span>
+          </div>
+        </div>
+
+        {/* CENTER SECTION — Navigation */}
+        <div className="flex items-center gap-8">
+          {siteConfig.navItems.map((item) => {
+            const isActive = activeSection === item.href;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="relative text-sm font-medium transition-all duration-300 hover:text-cyan-400"
+                style={{
+                  color: isActive ? "rgba(var(--foreground), 1)" : "rgba(var(--muted), 0.8)",
+                }}
+              >
+                {item.label}
+                {/* Active indicator - clean bottom border */}
+                {isActive && (
+                  <div
                     className="absolute -bottom-1 left-0 right-0 h-px"
-                    initial={false}
-                    animate={{
-                      backgroundColor: isActive ? "rgba(6, 182, 212, 0.6)" : "transparent",
-                      boxShadow: isActive ? "0 0 8px rgba(6, 182, 212, 0.4)" : "none",
+                    style={{
+                      backgroundColor: "rgba(var(--foreground), 1)",
                     }}
-                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   />
-                </motion.a>
-              );
-            })}
-          </div>
+                )}
+              </a>
+            );
+          })}
+        </div>
 
-          {/* RIGHT SECTION — Utility Icons */}
-          <div className="relative flex items-center gap-3">
-            {/* GitHub */}
-            <motion.a
-              href="https://github.com/ajayofficial22"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center"
-              style={{ color: "rgba(161, 161, 170, 0.7)" }}
-              whileHover={{
-                color: "rgba(103, 232, 249, 0.9)",
-                scale: 1.1,
-              }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Github size={18} />
-            </motion.a>
+        {/* RIGHT SECTION — Utility Icons */}
+        <div className="flex items-center gap-4 shrink-0">
+          {/* GitHub */}
+          <motion.a
+            href="https://github.com/ajayofficial22"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+            style={{ color: "rgba(var(--muted), 0.7)" }}
+            whileHover={{
+              color: "rgba(var(--foreground), 1)",
+              scale: 1.1,
+            }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Github size={18} />
+          </motion.a>
 
-            {/* LinkedIn */}
-            <motion.a
-              href={siteConfig.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center"
-              style={{ color: "rgba(161, 161, 170, 0.7)" }}
-              whileHover={{
-                color: "rgba(103, 232, 249, 0.9)",
-                scale: 1.1,
-              }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <Linkedin size={18} />
-            </motion.a>
+          {/* LinkedIn */}
+          <motion.a
+            href={siteConfig.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+            style={{ color: "rgba(var(--muted), 0.7)" }}
+            whileHover={{
+              color: "rgba(var(--foreground), 1)",
+              scale: 1.1,
+            }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Linkedin size={18} />
+          </motion.a>
 
-            {/* Resume Download */}
-            <motion.a
-              href="/Ajay_Kumar_Biswal_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center"
-              style={{ color: "rgba(161, 161, 170, 0.7)" }}
-              whileHover={{
-                color: "rgba(103, 232, 249, 0.9)",
-                scale: 1.1,
-              }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <FileText size={18} />
-            </motion.a>
-          </div>
-        </motion.div>
+          {/* Resume Download */}
+          <motion.a
+            href="/Ajay_Kumar_Biswal_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+            style={{ color: "rgba(var(--muted), 0.7)" }}
+            whileHover={{
+              color: "rgba(var(--foreground), 1)",
+              scale: 1.1,
+            }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <FileText size={18} />
+          </motion.a>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
+        </div>
       </motion.nav>
 
       {/* ======================================== */}
@@ -254,27 +235,25 @@ export function Navbar() {
           className="flex items-center justify-between px-4 py-2 backdrop-blur-xl"
           style={{
             height: "56px",
-            backgroundColor: "rgba(5, 8, 22, 0.9)",
-            borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
+            backgroundColor: "rgba(var(--background), 0.9)",
+            borderBottom: "1px solid rgba(var(--border), 0.3)",
           }}
         >
           {/* LEFT — Identity */}
           <div className="flex items-center gap-2">
             <div
-              className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold text-white flex-shrink-0"
+              className="flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-bold text-foreground flex-shrink-0"
               style={{
-                backgroundColor: "rgba(11, 17, 32, 0.8)",
-                boxShadow: "0 0 20px rgba(6, 182, 212, 0.15)",
+                backgroundColor: "rgba(var(--card), 0.8)",
               }}
             >
               {siteConfig.initials}
             </div>
             <div className="flex items-center gap-1 whitespace-nowrap">
-              <span className="text-sm font-medium text-zinc-100">
+              <span className="text-sm font-medium text-foreground">
                 {siteConfig.name}
               </span>
-              <span className="text-xs text-zinc-500 font-mono opacity-50">&lt;/&gt;</span>
+              <span className="text-xs text-muted/50 font-mono">&lt;/&gt;</span>
             </div>
           </div>
 
@@ -285,7 +264,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg"
-              style={{ color: "rgba(161, 161, 170, 0.7)" }}
+              style={{ color: "rgba(var(--muted), 0.7)" }}
               whileTap={{ scale: 0.9 }}
             >
               <Github size={18} />
@@ -296,7 +275,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg"
-              style={{ color: "rgba(161, 161, 170, 0.7)" }}
+              style={{ color: "rgba(var(--muted), 0.7)" }}
               whileTap={{ scale: 0.9 }}
             >
               <Linkedin size={18} />
@@ -307,11 +286,14 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center p-2 rounded-lg"
-              style={{ color: "rgba(161, 161, 170, 0.7)" }}
+              style={{ color: "rgba(var(--muted), 0.7)" }}
               whileTap={{ scale: 0.9 }}
             >
               <FileText size={18} />
             </motion.a>
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
           </div>
         </div>
       </motion.div>
@@ -339,9 +321,8 @@ export function Navbar() {
             width: "92%",
             maxWidth: "320px",
             height: "64px",
-            backgroundColor: "rgba(5, 8, 22, 0.9)",
-            borderColor: "rgba(255, 255, 255, 0.08)",
-            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
+            backgroundColor: "rgba(var(--background), 0.9)",
+            borderColor: "rgba(var(--border), 0.5)",
           }}
         >
           {mobileNavItems.map((item) => {
@@ -366,7 +347,7 @@ export function Navbar() {
                 {/* Icon */}
                 <motion.div
                   style={{
-                    color: isActive ? "rgba(103, 232, 249, 0.9)" : "rgba(161, 161, 170, 0.6)",
+                    color: isActive ? "rgba(var(--foreground), 0.9)" : "rgba(var(--muted), 0.6)",
                     fontSize: "16px",
                   }}
                   animate={{
@@ -381,7 +362,7 @@ export function Navbar() {
                 <span
                   className="text-[10px] mt-0.5 font-medium"
                   style={{
-                    color: isActive ? "rgba(103, 232, 249, 0.9)" : "rgba(161, 161, 170, 0.5)",
+                    color: isActive ? "rgba(var(--foreground), 0.9)" : "rgba(var(--muted), 0.5)",
                   }}
                 >
                   {item.label}
@@ -392,8 +373,7 @@ export function Navbar() {
                   <motion.div
                     className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
                     style={{
-                      backgroundColor: "rgba(6, 182, 212, 0.8)",
-                      boxShadow: "0 0 8px rgba(6, 182, 212, 0.6)",
+                      backgroundColor: "rgba(var(--foreground), 0.8)",
                     }}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}

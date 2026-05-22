@@ -26,7 +26,7 @@ export function GlowButton({
   ...props
 }: GlowButtonProps) {
   const variantClasses = {
-    primary: "text-white",
+    primary: "text-foreground",
     secondary: "text-foreground border border-border-subtle hover:border-border-strong",
     ghost: "text-foreground-muted hover:text-foreground",
   };
@@ -37,7 +37,7 @@ export function GlowButton({
       boxShadow: "0 4px 20px rgba(59, 130, 246, 0.25)",
     },
     secondary: {
-      backgroundColor: "rgba(11, 17, 32, 0.6)",
+      backgroundColor: "rgba(var(--card), 0.6)",
       backdropFilter: "blur(12px)",
     },
     ghost: {

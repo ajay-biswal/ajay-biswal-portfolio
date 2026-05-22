@@ -101,10 +101,10 @@ export function FeaturedProductGrid() {
         >
           <div>
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-2" style={{ color: "#f8fafc" }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-2" style={{ color: "rgb(var(--foreground))" }}>
               Some things I've built
             </h2>
-            <p className="text-base max-w-xl" style={{ color: "#64748b" }}>
+            <p className="text-base max-w-xl" style={{ color: "rgb(var(--muted))" }}>
               A collection of realtime systems, scalable platforms, and production-focused applications.
             </p>
           </div>
@@ -173,7 +173,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <div className="flex flex-col flex-1 p-5 space-y-3">
         {/* Title & subtitle */}
         <div>
-          <h3 className="text-lg font-semibold mb-1" style={{ color: "#f8fafc" }}>
+          <h3 className="text-lg font-semibold mb-1" style={{ color: "rgb(var(--foreground))" }}>
             {project.title}
           </h3>
           <p className="text-sm" style={{ color: "rgba(6, 182, 212, 0.8)" }}>

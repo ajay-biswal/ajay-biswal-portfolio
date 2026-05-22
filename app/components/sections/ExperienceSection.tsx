@@ -15,7 +15,7 @@ export function ExperienceSection() {
         />
         <p
           className="mt-3 text-center text-base md:text-lg max-w-2xl mx-auto"
-          style={{ color: "#94a3b8" }}
+          style={{ color: "rgb(var(--muted))" }}
         >
           Building scalable systems and continuously advancing technical expertise.
         </p>
@@ -68,7 +68,7 @@ export function ExperienceSection() {
               <div
                 className="rounded-2xl p-6 md:p-8"
                 style={{
-                  backgroundColor: "rgba(11, 17, 32, 0.6)",
+                  backgroundColor: "rgba(var(--card), 0.6)",
                   border: "1px solid rgba(148, 163, 184, 0.1)",
                   backdropFilter: "blur(16px)",
                 }}
@@ -88,7 +88,7 @@ export function ExperienceSection() {
                       <div>
                         <h3
                           className="text-xl md:text-2xl font-bold mb-1"
-                          style={{ color: "#f8fafc" }}
+                          style={{ color: "rgb(var(--foreground))" }}
                         >
                           {edu.degree}
                         </h3>
@@ -112,7 +112,7 @@ export function ExperienceSection() {
                     </div>
                     <p
                       className="text-sm md:text-base mt-3"
-                      style={{ color: "#94a3b8" }}
+                      style={{ color: "rgb(var(--muted))" }}
                     >
                       {edu.detail}
                     </p>
