@@ -34,6 +34,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
+          "lg:pb-0 pb-28", // Mobile bottom padding for dock navigation
           inter.variable,
           spaceGrotesk.variable
         )}

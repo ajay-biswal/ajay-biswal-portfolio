@@ -1,36 +1,99 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SectionHeader } from "@/components/shared/SectionHeader";
-import { SkillPanel } from "@/components/shared/SkillPanel";
-import { skillCategories } from "@/data/skills";
+import { MinimalSkillIcon } from "@/components/shared/MinimalSkillIcon";
+import { skills } from "@/data/skills";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="relative">
-      <div className="mb-10 md:mb-12">
-        <SectionHeader
-          title="Engineering Capabilities"
-          eyebrow="Technical Expertise"
+    <section id="skills" className="relative py-16 md:py-20">
+      {/* Background atmosphere */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, rgba(168, 85, 247, 0.02) 40%, transparent 70%)",
+            filter: "blur(50px)",
+          }}
         />
-        <p
-          className="mt-3 text-center text-base md:text-lg max-w-2xl mx-auto"
-          style={{ color: "#94a3b8" }}
-        >
-          A comprehensive toolkit for building scalable, intelligent systems
-          from frontend interfaces to backend architecture.
-        </p>
       </div>
 
-      {/* Capability panels grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-        {skillCategories.map((category, index) => (
-          <SkillPanel
-            key={category.name}
-            {...category}
-            delay={index * 0.1}
-          />
-        ))}
+      <div className="relative z-10 max-w-5xl mx-auto px-4">
+        {/* Section header - tighter spacing */}
+        <div className="text-center mb-10 md:mb-12 space-y-3">
+          {/* Tiny label */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-block px-2.5 py-1 rounded-full border border-white/[0.08] backdrop-blur-sm"
+            style={{ backgroundColor: "rgba(255, 255, 255, 0.02)" }}
+          >
+            <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: "#06B6D4" }}>
+              Tech Stack
+            </span>
+          </motion.div>
+
+          {/* Large title */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
+            style={{ color: "#f8fafc" }}
+          >
+            Skills
+          </motion.h2>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-sm md:text-base max-w-lg mx-auto"
+            style={{ color: "#94a3b8" }}
+          >
+            The technologies I build with.
+          </motion.p>
+        </div>
+
+        {/* Floating icon matrix - optimized density */}
+        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-x-8 gap-y-6 md:gap-x-10 md:gap-y-8 mb-8">
+          {skills.map((skill, index) => (
+            <MinimalSkillIcon
+              key={skill.name}
+              {...skill}
+              delay={index * 0.03}
+            />
+          ))}
+        </div>
+
+        {/* Bottom status pill - closer to grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex justify-center mt-6 md:mt-8"
+        >
+          <div
+            className="px-3.5 py-1.5 rounded-full border backdrop-blur-sm"
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.02)",
+              borderColor: "rgba(255, 255, 255, 0.06)",
+            }}
+          >
+            <span
+              className="text-[11px] font-mono"
+              style={{ color: "#64748b" }}
+            >
+              &lt;&gt; {skills.length}+ technologies in daily workflow
+            </span>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

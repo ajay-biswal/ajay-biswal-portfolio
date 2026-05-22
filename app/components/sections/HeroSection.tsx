@@ -8,6 +8,7 @@ import { EngineeringStackStrip } from "@/components/shared/EngineeringStackStrip
 import { SocialControlStrip } from "@/components/shared/SocialControlStrip";
 import { GlowButton } from "@/components/shared/GlowButton";
 import { GradientText } from "@/components/shared/GradientText";
+import { TechMarquee } from "@/components/hero/TechMarquee";
 import { heroStagger, fadeIn, scaleReveal } from "@/lib/animations";
 
 export function HeroSection() {
@@ -25,7 +26,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center pt-28 md:pt-32 lg:pt-36 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -117,6 +118,9 @@ export function HeroSection() {
 
             {/* Social Control Strip */}
             <SocialControlStrip />
+
+            {/* Tech Marquee - Infinite scrolling tech stack */}
+            <TechMarquee />
 
             {/* Engineering Stack Strip */}
             <EngineeringStackStrip />

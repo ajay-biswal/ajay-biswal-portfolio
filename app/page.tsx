@@ -9,10 +9,14 @@ import { ContactSection } from "@/app/components/sections/ContactSection";
 import { Footer } from "@/components/layout/Footer";
 import { AmbientBackground } from "@/components/shared/AmbientBackground";
 import { CursorSpotlight } from "@/components/shared/CursorSpotlight";
+import { EngineeringGrid } from "@/components/shared/EngineeringGrid";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen antialiased">
+    <div className="relative min-h-screen antialiased lg:pt-0 pt-16">
+      {/* Engineering grid system */}
+      <EngineeringGrid />
+      
       {/* Ambient background engine */}
       <AmbientBackground />
       
