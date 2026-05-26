@@ -6,12 +6,12 @@
    ============================================ */
 
 :root {
-  --background: 3 7 18;
+  --background: 7 11 26;
   --foreground: 248 250 252;
 
-  --surface: 10 15 30;
+  --surface: 10 16 32;
   --surface-elevated: 15 23 42;
-  --surface-glass: 10 15 30;
+  --surface-glass: 10 16 32;
 
   --border: 30 41 59;
 
@@ -21,10 +21,10 @@
   --primary: 34 211 238;
   --secondary: 168 85 247;
 
-  --glow-primary: 6 182 212;
-  --glow-secondary: 168 85 247;
+  --glow-primary: 120 130 160;
+  --glow-secondary: 100 110 140;
 
-  --grid-color: 71 85 105;
+  --grid-color: 120 130 160;
 }
 
 /* ============================================
@@ -32,32 +32,32 @@
    ============================================ */
 
 @theme {
-  /* Base Colors - Deep Cinematic Dark */
-  --color-background-secondary: #060816;
+  /* Base Colors - Deep Cinematic Navy */
+  --color-background-secondary: #0A1020;
   --color-foreground-muted: #94a3b8;
   --color-foreground-soft: #64748b;
   
   /* Surface Colors */
-  --surface: #0B1120;
+  --surface: #0A1020;
   --surface-elevated: #0f172a;
-  --glass: rgba(11, 17, 32, 0.6);
+  --glass: rgba(10, 16, 32, 0.6);
   --glass-strong: rgba(15, 23, 42, 0.8);
   
-  /* Accent Glow Colors - Ultra Subtle */
-  --glow-blue: rgba(59, 130, 246, 0.12);
-  --glow-cyan: rgba(6, 182, 212, 0.08);
-  --glow-purple: rgba(168, 85, 247, 0.10);
-  --glow-pink: rgba(236, 72, 153, 0.06);
+  /* Accent Glow Colors - Ultra Subtle, Calm */
+  --glow-blue: rgba(120, 130, 160, 0.08);
+  --glow-cyan: rgba(100, 110, 140, 0.06);
+  --glow-purple: rgba(100, 110, 140, 0.06);
+  --glow-pink: rgba(100, 110, 140, 0.04);
   
   /* Border Colors */
   --border-subtle: rgba(148, 163, 184, 0.08);
   --border-strong: rgba(148, 163, 184, 0.15);
-  --border-glow: rgba(59, 130, 246, 0.25);
+  --border-glow: rgba(120, 130, 160, 0.20);
   
-  /* Shadow Colors - Cinematic */
-  --shadow-glow-blue: 0 0 30px rgba(59, 130, 246, 0.12);
-  --shadow-glow-purple: 0 0 30px rgba(168, 85, 247, 0.10);
-  --shadow-glow-cyan: 0 0 30px rgba(6, 182, 212, 0.08);
+  /* Shadow Colors - Cinematic, Calm */
+  --shadow-glow-blue: 0 0 30px rgba(120, 130, 160, 0.08);
+  --shadow-glow-purple: 0 0 30px rgba(100, 110, 140, 0.06);
+  --shadow-glow-cyan: 0 0 30px rgba(100, 110, 140, 0.06);
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
   
   /* Blur Utilities */
@@ -67,10 +67,10 @@
   --blur-xl: 40px;
   --blur-2xl: 64px;
   
-  /* Gradients - Restrained */
-  --gradient-primary: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(168, 85, 247, 0.85));
-  --gradient-secondary: linear-gradient(135deg, rgba(6, 182, 212, 0.85), rgba(59, 130, 246, 0.85));
-  --gradient-glow: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(168, 85, 247, 0.10));
+  /* Gradients - Restrained, Premium */
+  --gradient-primary: linear-gradient(135deg, rgba(120, 130, 160, 0.6), rgba(100, 110, 140, 0.5));
+  --gradient-secondary: linear-gradient(135deg, rgba(100, 110, 140, 0.5), rgba(120, 130, 160, 0.5));
+  --gradient-glow: linear-gradient(135deg, rgba(120, 130, 160, 0.08), rgba(100, 110, 140, 0.06));
   
   /* Spacing Tokens */
   --spacing-section: 140px;
@@ -116,58 +116,58 @@ body {
 
 
 /* ============================================
-   BACKGROUND ENGINE - CYBERPUNK ENGINEERING
+   BACKGROUND ENGINE - CALM ENGINEERING
    ============================================ */
 
-/* Cinematic Mesh Gradient Background */
+/* Cinematic Mesh Gradient Background - Subtle */
 .bg-mesh {
   background:
     radial-gradient(
       circle at top left,
-      rgba(var(--glow-primary), 0.12),
+      rgba(var(--glow-primary), 0.08),
       transparent 30%
     ),
     radial-gradient(
       circle at bottom right,
-      rgba(var(--glow-secondary), 0.12),
+      rgba(var(--glow-secondary), 0.06),
       transparent 30%
     );
 }
 
-/* Ambient Glow Blobs */
+/* Ambient Glow Blobs - Ultra Subtle */
 .glow-blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.3;
+  opacity: 0.15;
   pointer-events: none;
 }
 
 .glow-blob--blue {
-  background: rgba(var(--glow-primary), 0.15);
+  background: rgba(var(--glow-primary), 0.08);
 }
 
 .glow-blob--purple {
-  background: rgba(var(--glow-secondary), 0.12);
+  background: rgba(var(--glow-secondary), 0.06);
 }
 
 .glow-blob--cyan {
-  background: rgba(var(--glow-primary), 0.10);
+  background: rgba(var(--glow-primary), 0.06);
 }
 
-/* Grid Overlay */
+/* Grid Overlay - Subtle Graphite */
 .grid-overlay {
   background-image:
     linear-gradient(
-      rgba(var(--grid-color), 0.08) 1px,
+      rgba(120, 130, 160, 0.05) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(var(--grid-color), 0.08) 1px,
+      rgba(120, 130, 160, 0.05) 1px,
       transparent 1px
     );
-  background-size: 60px 60px;
+  background-size: 64px 64px;
   pointer-events: none;
 }
 
@@ -197,7 +197,7 @@ body {
   box-shadow: 0 0 60px rgba(var(--glow-secondary), 0.28);
 }
 
-/* Cinematic Vignette */
+/* Cinematic Vignette - Subtle */
 .vignette {
   position: relative;
 }
@@ -206,7 +206,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 50%, rgba(3, 7, 18, 0.4) 100%);
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(7, 11, 26, 0.3) 100%);
   pointer-events: none;
 }
 

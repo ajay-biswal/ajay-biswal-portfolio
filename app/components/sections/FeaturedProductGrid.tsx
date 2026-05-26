@@ -72,20 +72,13 @@ export function FeaturedProductGrid() {
 
   return (
     <section id="featured" className="relative pt-12 pb-20">
-      {/* Subtle atmosphere */}
+      {/* Ultra-subtle atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full"
           style={{
-            background: "radial-gradient(circle, rgba(6, 182, 212, 0.04) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(120, 130, 160, 0.04) 0%, transparent 70%)",
             filter: "blur(100px)",
-          }}
-        />
-        <div
-          className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(168, 85, 247, 0.03) 0%, transparent 65%)",
-            filter: "blur(90px)",
           }}
         />
       </div>

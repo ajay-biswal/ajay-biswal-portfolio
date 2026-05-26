@@ -42,14 +42,13 @@ export function WorkstationScene({ imageUrl, imageAlt }: WorkstationSceneProps) 
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Ambient glow behind workstation */}
+      {/* Ambient glow behind workstation - subtle graphite */}
       <div
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 60% 50% at 50% 50%, rgba(168, 85, 247, 0.12) 0%, transparent 70%),
-            radial-gradient(ellipse 50% 40% at 40% 60%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
-            radial-gradient(ellipse 40% 30% at 60% 40%, rgba(6, 182, 212, 0.06) 0%, transparent 50%)
+            radial-gradient(ellipse 60% 50% at 50% 50%, rgba(120, 130, 160, 0.08) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 40% at 40% 60%, rgba(100, 110, 140, 0.06) 0%, transparent 60%)
           `,
           filter: "blur(60px)",
         }}
@@ -80,23 +79,23 @@ export function WorkstationScene({ imageUrl, imageAlt }: WorkstationSceneProps) 
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to bottom, rgba(3, 7, 18, 0.3) 0%, rgba(3, 7, 18, 0.6) 100%)",
+              background: "linear-gradient(to bottom, rgba(7, 11, 26, 0.3) 0%, rgba(7, 11, 26, 0.6) 100%)",
             }}
           />
 
-          {/* Purple monitor lighting bleed */}
+          {/* Subtle monitor lighting - graphite tone */}
           <div
             className="absolute inset-0"
             style={{
-              background: "radial-gradient(ellipse 50% 40% at 50% 45%, rgba(168, 85, 247, 0.15) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse 50% 40% at 50% 45%, rgba(120, 130, 160, 0.08) 0%, transparent 70%)",
             }}
           />
 
-          {/* Cyan atmospheric glow */}
+          {/* Faint atmospheric depth */}
           <div
             className="absolute inset-0"
             style={{
-              background: "radial-gradient(ellipse 40% 30% at 45% 55%, rgba(6, 182, 212, 0.10) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse 40% 30% at 45% 55%, rgba(100, 110, 140, 0.06) 0%, transparent 60%)",
             }}
           />
 
@@ -105,8 +104,8 @@ export function WorkstationScene({ imageUrl, imageAlt }: WorkstationSceneProps) 
             className="absolute inset-0"
             style={{
               background: `
-                linear-gradient(to right, #030712 0%, transparent 15%, transparent 85%, #030712 100%),
-                linear-gradient(to bottom, #030712 0%, transparent 10%, transparent 90%, #030712 100%)
+                linear-gradient(to right, #070B1A 0%, transparent 15%, transparent 85%, #070B1A 100%),
+                linear-gradient(to bottom, #070B1A 0%, transparent 10%, transparent 90%, #070B1A 100%)
               `,
             }}
           />
@@ -115,7 +114,7 @@ export function WorkstationScene({ imageUrl, imageAlt }: WorkstationSceneProps) 
           <div
             className="absolute inset-0"
             style={{
-              background: "radial-gradient(ellipse at center, transparent 40%, rgba(3, 7, 18, 0.5) 100%)",
+              background: "radial-gradient(ellipse at center, transparent 40%, rgba(7, 11, 26, 0.5) 100%)",
             }}
           />
         </div>

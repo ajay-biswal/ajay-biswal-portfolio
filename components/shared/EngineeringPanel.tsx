@@ -28,11 +28,11 @@ export function EngineeringPanel({ imageUrl, imageAlt }: EngineeringPanelProps) 
       transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.5 }}
       className="relative max-w-lg mx-auto"
     >
-      {/* Depth blur behind panel */}
+      {/* Depth blur behind panel - subtle graphite */}
       <div
         className="absolute -inset-8 rounded-3xl"
         style={{
-          background: "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(120,130,160,0.06) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -45,7 +45,7 @@ export function EngineeringPanel({ imageUrl, imageAlt }: EngineeringPanelProps) 
           boxShadow: `
             0 0 0 1px rgba(var(--border), 0.5),
             0 20px 60px rgba(0, 0, 0, 0.6),
-            0 0 40px rgba(59, 130, 246, 0.08)
+            0 0 40px rgba(120, 130, 160, 0.06)
           `,
         }}
       >
@@ -88,7 +88,7 @@ export function EngineeringPanel({ imageUrl, imageAlt }: EngineeringPanelProps) 
           <div
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to bottom, rgba(3,7,18,0.1) 0%, rgba(3,7,18,0.4) 100%)",
+              background: "linear-gradient(to bottom, rgba(7,11,26,0.1) 0%, rgba(7,11,26,0.4) 100%)",
             }}
           />
           
@@ -113,21 +113,21 @@ export function EngineeringPanel({ imageUrl, imageAlt }: EngineeringPanelProps) 
         <div
           className="p-4 font-mono text-sm"
           style={{
-            backgroundColor: "rgba(6, 8, 22, 0.95)",
+            backgroundColor: "rgba(7, 11, 26, 0.95)",
             borderTop: "1px solid rgba(148, 163, 184, 0.08)",
           }}
         >
-          {/* Scanline effect - ultra subtle */}
+          {/* Scanline effect - ultra subtle graphite */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6,182,212,0.015) 2px, rgba(6,182,212,0.015) 4px)",
+              backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(120,130,160,0.012) 2px, rgba(120,130,160,0.012) 4px)",
             }}
           />
           
           <div className="space-y-2.5 relative">
             <div className="flex items-center gap-2">
-              <span style={{ color: "rgba(6, 182, 212, 0.8)" }}>❯</span>
+              <span style={{ color: "rgba(120, 130, 160, 0.7)" }}>❯</span>
               <span style={{ color: "rgba(148, 163, 184, 0.7)" }}>whoami</span>
             </div>
             <div className="pl-4 font-semibold" style={{ color: "#f8fafc" }}>
@@ -135,37 +135,37 @@ export function EngineeringPanel({ imageUrl, imageAlt }: EngineeringPanelProps) 
             </div>
             
             <div className="flex items-center gap-2 pt-1">
-              <span style={{ color: "rgba(6, 182, 212, 0.8)" }}>❯</span>
+              <span style={{ color: "rgba(120, 130, 160, 0.7)" }}>❯</span>
               <span style={{ color: "rgba(148, 163, 184, 0.7)" }}>stack</span>
             </div>
             <div className="pl-4" style={{ color: "rgba(248, 250, 252, 0.9)" }}>
-              <span style={{ color: "rgba(6, 182, 212, 0.9)" }}>Next.js</span>
+              <span style={{ color: "rgba(120, 130, 160, 0.8)" }}>Next.js</span>
               <span style={{ color: "rgba(148, 163, 184, 0.5)" }}> | </span>
-              <span style={{ color: "rgba(6, 182, 212, 0.9)" }}>GenAI</span>
+              <span style={{ color: "rgba(120, 130, 160, 0.8)" }}>GenAI</span>
               <span style={{ color: "rgba(148, 163, 184, 0.5)" }}> | </span>
-              <span style={{ color: "rgba(6, 182, 212, 0.9)" }}>System Design</span>
+              <span style={{ color: "rgba(120, 130, 160, 0.8)" }}>System Design</span>
             </div>
             
             <div className="flex items-center gap-2 pt-1">
-              <span style={{ color: "rgba(6, 182, 212, 0.8)" }}>❯</span>
+              <span style={{ color: "rgba(120, 130, 160, 0.7)" }}>❯</span>
               <span style={{ color: "rgba(148, 163, 184, 0.7)" }}>status</span>
               <span className="inline-flex items-center ml-2">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "rgba(6, 182, 212, 0.8)" }} />
-                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "rgba(6, 182, 212, 0.9)" }} />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "rgba(120, 130, 160, 0.7)" }} />
+                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "rgba(120, 130, 160, 0.8)" }} />
                 </span>
               </span>
-              <span style={{ color: "rgba(6, 182, 212, 0.9)" }}>Active</span>
+              <span style={{ color: "rgba(120, 130, 160, 0.8)" }}>Active</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Subtle hover motion */}
+      {/* Subtle hover motion - graphite glow */}
       <motion.div
         className="absolute -inset-1 rounded-2xl -z-10"
         style={{
-          background: "linear-gradient(135deg, rgba(59,130,246,0.12), rgba(168,85,247,0.10))",
+          background: "linear-gradient(135deg, rgba(120,130,160,0.08), rgba(100,110,140,0.06))",
           filter: "blur(20px)",
           opacity: 0,
         }}

@@ -33,8 +33,8 @@ export function GlowButton({
 
   const variantStyles = {
     primary: {
-      background: "linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(168, 85, 247, 0.85))",
-      boxShadow: "0 4px 20px rgba(59, 130, 246, 0.25)",
+      background: "linear-gradient(135deg, rgba(120, 130, 160, 0.7), rgba(100, 110, 140, 0.6))",
+      boxShadow: "0 4px 20px rgba(120, 130, 160, 0.20)",
     },
     secondary: {
       backgroundColor: "rgba(var(--surface), 0.6)",
@@ -55,7 +55,7 @@ export function GlowButton({
     <motion.button
       className={cn(
         "rounded-xl font-semibold transition-all duration-300",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#030712]",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070B1A]",
         "disabled:opacity-50 disabled:pointer-events-none",
         variantClasses[variant],
         sizeClasses[size],
@@ -66,7 +66,7 @@ export function GlowButton({
         scale: 1.03,
         y: -2,
         boxShadow: variant === "primary"
-          ? "0 8px 30px rgba(59, 130, 246, 0.4)"
+          ? "0 8px 30px rgba(120, 130, 160, 0.30)"
           : "0 4px 20px rgba(0, 0, 0, 0.3)",
         transition: { duration: 0.3, ease: cinematicEase },
       }}
