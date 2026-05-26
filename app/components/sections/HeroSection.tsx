@@ -6,9 +6,10 @@ import { fadeIn } from "@/lib/animations";
 import { SiPython, SiDocker, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiRedux, SiNodedotjs, SiExpress, SiSocketdotio, SiMongodb, SiRedis, SiMysql, SiFirebase, SiOpenai, SiGit, SiGraphql, SiVercel, SiLinux } from "react-icons/si";
 import { TbTopologyStar3, TbShieldLock, TbApi, TbBrain, TbBrandFramerMotion } from "react-icons/tb";
 import { FaAws } from "react-icons/fa";
-import { Download, ArrowUpRight } from "lucide-react";
+import { Download, ArrowUpRight, FileText, BriefcaseBusiness } from "lucide-react";
 import { FiGithub, FiLinkedin, FiMail as FiMailIcon } from "react-icons/fi";
 import { siteConfig } from "@/data/site.config";
+import { EngineeringButton } from "@/components/ui/engineering-button";
 
 export function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -63,7 +64,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center mt-0 pt-14 lg:pt-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center mt-0 pt-24 lg:pt-32 overflow-hidden"
     >
       <div className="mx-auto max-w-[700px] px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col items-center text-center space-y-6">
@@ -72,13 +73,13 @@ export function HeroSection() {
             variants={fadeIn}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center px-3 py-1.5 rounded-md"
+            className="inline-flex items-center px-3 py-2.5 rounded-md"
             style={{
               backgroundColor: "rgba(255, 255, 255, 0.04)",
               border: "1px solid rgba(255, 255, 255, 0.08)",
             }}
           >
-            <span className="text-xs font-mono" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
+            <span className="font-mono-ui" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
               &lt;/&gt; Full Stack Engineer
             </span>
           </motion.div>
@@ -110,13 +111,17 @@ export function HeroSection() {
             variants={fadeIn}
             initial="hidden"
             animate="visible"
-            className="space-y-2"
+            className="space-y-4 sm:space-y-5"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight" style={{ color: "#f8fafc" }}>
-              Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent">
-                Ajay Kumar Biswal
-              </span>
+            <h1 className="font-heading" style={{ letterSpacing: "-0.04em", lineHeight: "0.95" }}>
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold" style={{ color: "rgba(248, 250, 252, 0.7)" }}>
+                Hi, I'm
+              </div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mt-1">
+                <span className="bg-gradient-to-r from-blue-200 via-indigo-300 to-blue-400 bg-clip-text text-transparent">
+                  Ajay Biswal
+                </span>
+              </div>
             </h1>
           </motion.div>
 
@@ -125,7 +130,7 @@ export function HeroSection() {
             variants={fadeIn}
             initial="hidden"
             animate="visible"
-            className="text-base md:text-lg leading-relaxed"
+            className="text-sm sm:text-base md:text-lg leading-relaxed max-w-[90%] mx-auto"
             style={{ color: "rgba(255, 255, 255, 0.6)" }}
           >
             Full-stack engineer specializing in distributed architectures and realtime infrastructure — building production-grade systems that handle complex engineering challenges at scale.
@@ -213,52 +218,26 @@ export function HeroSection() {
             className="flex items-center justify-center gap-5 mt-7"
           >
             {/* Button 1: Download Resume */}
-            <a
+            <EngineeringButton
+              as="a"
               href="/resume/AjayBiswal_FullStack_Developer.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 h-[52px] px-7 rounded-[4px] font-medium text-[15px] tracking-[0.01em] transition-all duration-200"
-              style={{
-                backgroundColor: "rgba(10, 10, 18, 0.7)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                color: "#ffffff",
-                backdropFilter: "blur(2px)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
-                e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.02)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
-                e.currentTarget.style.backgroundColor = "rgba(10, 10, 18, 0.7)";
-              }}
+              variant="neutral"
             >
-              <Download size={16} strokeWidth={2} />
-              Download Resume
-            </a>
+              <FileText size={16} strokeWidth={2} />
+              Resume
+            </EngineeringButton>
             
             {/* Button 2: View Projects */}
-            <button
+            <EngineeringButton
               onClick={() => scrollToSection("projects")}
-              className="inline-flex items-center gap-2 h-[52px] px-7 rounded-[4px] font-medium text-[15px] tracking-[0.01em] transition-all duration-200"
-              style={{
-                backgroundColor: "rgba(17, 24, 39, 0.8)",
-                border: "1px solid rgba(59, 130, 246, 0.2)",
-                color: "rgba(147, 197, 253, 0.9)",
-                backdropFilter: "blur(2px)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(96, 165, 250, 0.3)";
-                e.currentTarget.style.backgroundColor = "#162033";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.2)";
-                e.currentTarget.style.backgroundColor = "rgba(17, 24, 39, 0.8)";
-              }}
+              variant="orange"
             >
-              View Projects
-              <ArrowUpRight size={16} strokeWidth={2} />
-            </button>
+              <BriefcaseBusiness size={16} strokeWidth={2} />
+              Projects
+              
+            </EngineeringButton>
           </motion.div>
 
           {/* Social Icons */}

@@ -38,22 +38,52 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  // Active section detection
+  // Active section detection using IntersectionObserver
   useEffect(() => {
+    const sections = [
+      { id: "hero", href: "#hero" },
+      { id: "skills", href: "#skills" },
+      { id: "projects", href: "#projects" },
+      { id: "experience", href: "#experience" },
+      { id: "contact", href: "#contact" },
+    ];
+
+    let currentMostVisible = "#hero";
+    let maxIntersectionRatio = 0;
+
     const observer = new IntersectionObserver(
       (entries) => {
+        // Find the section with the highest intersection ratio
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
+            const ratio = entry.intersectionRatio;
+            const href = `#${entry.target.id}`;
+            
+            if (ratio > maxIntersectionRatio) {
+              maxIntersectionRatio = ratio;
+              currentMostVisible = href;
+            }
           }
         });
+        
+        // Update active section to the most visible one
+        setActiveSection(currentMostVisible);
+        
+        // Reset max ratio for next calculation
+        maxIntersectionRatio = 0;
       },
-      { rootMargin: "-20% 0px -80% 0px", threshold: 0.2 }
+      { 
+        rootMargin: "-10% 0px -30% 0px",
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+      }
     );
 
-    siteConfig.navItems.forEach((item) => {
-      const section = document.querySelector(item.href);
-      if (section) observer.observe(section);
+    // Observe all sections
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        observer.observe(element);
+      }
     });
 
     return () => observer.disconnect();
@@ -295,90 +325,163 @@ export function Navbar() {
       {/* ======================================== */}
       {/* MOBILE BOTTOM DOCK NAVIGATION (< lg) */}
       {/* ======================================== */}
-      <motion.div
-        className="lg:hidden fixed bottom-3 left-1/2 -translate-x-1/2 z-[9999]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ 
-          opacity: 1, 
-          y: 0,
-          scale: scrollDirection === 'down' ? 0.95 : 1,
-        }}
-        transition={{ 
-          duration: 0.6, 
-          ease: [0.22, 1, 0.36, 1],
-          scale: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
-        }}
-      >
-        <div
-          className="flex items-center justify-around gap-1 px-2 py-1 rounded-2xl border backdrop-blur-xl shadow-2xl"
-          style={{
-            width: "92%",
-            maxWidth: "320px",
-            height: "64px",
-            backgroundColor: "rgba(var(--background), 0.9)",
-            borderColor: "rgba(var(--border), 0.5)",
+     <motion.div
+  className="
+    lg:hidden
+    fixed
+    bottom-4
+    left-1/2
+    -translate-x-1/2
+    w-[92%]
+    max-w-[360px]
+    z-[9999]
+    flex
+    justify-center
+  "
+  initial={{ opacity: 0, y: 20 }}
+  animate={{
+    opacity: 1,
+    y: 0,
+    scale: scrollDirection === "down" ? 0.96 : 1,
+  }}
+  transition={{
+    duration: 0.6,
+    ease: [0.22, 1, 0.36, 1],
+    scale: {
+      duration: 0.25,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }}
+>
+  <div
+    className="
+      w-full
+      h-[68px]
+      flex
+      items-center
+      justify-evenly
+      overflow-hidden
+      rounded-[24px]
+      border
+      backdrop-blur-xl
+      px-2
+      py-2
+    "
+    style={{
+      background: "rgba(5, 5, 20, 0.88)",
+      borderColor: "rgba(255,255,255,0.16)",
+      boxShadow:
+        "0 10px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04)",
+    }}
+  >
+    {mobileNavItems.map((item) => {
+      const isActive = activeSection === item.href;
+      const Icon = item.icon;
+
+      return (
+        <motion.a
+          key={item.href}
+          href={item.href}
+          onClick={(e) => handleNavClick(e, item.href)}
+          className="
+            relative
+            flex-1
+            flex
+            flex-col
+            items-center
+            justify-center
+            gap-1
+            rounded-xl
+            py-1
+            transition-all
+            duration-300
+          "
+          animate={{
+            scale: isActive ? 1.04 : 1,
+          }}
+          whileTap={{ scale: 0.92 }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 25,
           }}
         >
-          {mobileNavItems.map((item) => {
-            const isActive = activeSection === item.href;
-            const Icon = item.icon;
+          {/* Active background glow */}
+          {isActive && (
+            <motion.div
+              layoutId="mobileDockActive"
+              className="absolute inset-0 rounded-xl"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(99,102,241,0.14), rgba(99,102,241,0.05))",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 350,
+                damping: 30,
+              }}
+            />
+          )}
 
-            return (
-              <motion.a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="relative flex flex-col items-center justify-center rounded-xl transition-all duration-300"
-                style={{
-                  minWidth: "52px",
-                }}
-                animate={{
-                  scale: isActive ? 1.05 : 1,
-                }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              >
-                {/* Icon */}
-                <motion.div
-                  style={{
-                    color: isActive ? "rgba(var(--foreground), 0.9)" : "rgba(var(--muted), 0.6)",
-                    fontSize: "16px",
-                  }}
-                  animate={{
-                    boxShadow: isActive ? "0 0 12px rgba(6, 182, 212, 0.3)" : "none",
-                  }}
-                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <Icon size={16} />
-                </motion.div>
+          {/* Icon */}
+          <motion.div
+            className="relative z-10"
+            animate={{
+              y: isActive ? -1 : 0,
+            }}
+            transition={{
+              duration: 0.25,
+            }}
+            style={{
+              color: isActive
+                ? "rgba(255,255,255,0.95)"
+                : "rgba(255,255,255,0.58)",
+            }}
+          >
+            <Icon size={16} strokeWidth={2} />
+          </motion.div>
 
-                {/* Label */}
-                <span
-                  className="text-[10px] mt-0.5 font-medium"
-                  style={{
-                    color: isActive ? "rgba(var(--foreground), 0.9)" : "rgba(var(--muted), 0.5)",
-                  }}
-                >
-                  {item.label}
-                </span>
+          {/* Label */}
+          <span
+            className="relative z-10 text-[10px] leading-none font-medium"
+            style={{
+              color: isActive
+                ? "rgba(255,255,255,0.95)"
+                : "rgba(255,255,255,0.52)",
+            }}
+          >
+            {item.label}
+          </span>
 
-                {/* Active indicator (top dot) */}
-                {isActive && (
-                  <motion.div
-                    className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
-                    style={{
-                      backgroundColor: "rgba(var(--foreground), 0.8)",
-                    }}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                )}
-              </motion.a>
-            );
-          })}
-        </div>
-      </motion.div>
+          {/* Active top indicator */}
+          {isActive && (
+            <motion.div
+              className="
+                absolute
+                top-1
+                left-1/2
+                -translate-x-1/2
+                w-1
+                h-1
+                rounded-full
+              "
+              style={{
+                background: "rgba(255,255,255,0.9)",
+                boxShadow: "0 0 10px rgba(255,255,255,0.6)",
+              }}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{
+                duration: 0.25,
+              }}
+            />
+          )}
+        </motion.a>
+      );
+    })}
+  </div>
+</motion.div>
     </>
   );
 }
