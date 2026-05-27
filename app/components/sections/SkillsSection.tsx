@@ -22,7 +22,7 @@ export function SkillsSection() {
         {/* Section header - tighter spacing */}
         <div className="text-center mb-10 md:mb-12 space-y-3">
           {/* Tiny label */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -30,10 +30,8 @@ export function SkillsSection() {
             className="inline-block px-2.5 py-1 rounded-full border border-border/30 backdrop-blur-sm"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.02)" }}
           >
-            <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: "#06B6D4" }}>
-              Tech Stack
-            </span>
-          </motion.div>
+            
+          </motion.div> */}
 
           {/* Large title */}
           <motion.h2

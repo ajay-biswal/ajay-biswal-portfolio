@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink, ArrowRight } from "lucide-react";
 import { cinematicEase } from "@/lib/animations";
+import { getTechIcon } from "@/lib/tech-icons";
 
 interface Project {
   title: string;
@@ -180,20 +181,36 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </p>
 
         {/* Tech stack */}
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="px-2.5 py-1 rounded-full text-xs font-medium"
-              style={{
-                backgroundColor: "rgba(6, 182, 212, 0.05)",
-                border: "1px solid rgba(6, 182, 212, 0.1)",
-                color: "rgba(6, 182, 212, 0.8)",
-              }}
-            >
-              {tech}
-            </span>
-          ))}
+        <div className="flex flex-wrap gap-3">
+          {project.tech.map((tech) => {
+            const techData = getTechIcon(tech);
+            const IconComponent = techData.icon;
+            return (
+              <div
+                key={tech}
+                className="relative group/icon"
+                title={techData.name}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-xl cursor-pointer"
+                  style={{
+                    color: techData.color,
+                    filter: "drop-shadow(0 0 0px transparent)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = `drop-shadow(0 0 8px ${techData.color}40)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = "drop-shadow(0 0 0px transparent)";
+                  }}
+                >
+                  <IconComponent />
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Actions */}

@@ -6,6 +6,7 @@ import { Github, ExternalLink, Zap, Server, Network, Users, Database, MessageSqu
 import { GlowButton } from "@/components/shared/GlowButton";
 import { fadeIn, cardStagger, cinematicEase } from "@/lib/animations";
 import { ArchitectureVisualization } from "@/app/components/banter/ArchitectureVisualization";
+import { getTechIcon } from "@/lib/tech-icons";
 
 /**
  * Banter - Distributed Real-Time Messaging Infrastructure
@@ -527,29 +528,38 @@ export function BanterSystemShowcase() {
             Technology Stack
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {techStack.map((tech, index) => (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="px-5 py-2.5 rounded-full text-sm font-medium"
-                style={{
-                  backgroundColor: "rgba(6, 182, 212, 0.08)",
-                  color: "rgba(6, 182, 212, 0.9)",
-                  border: "1px solid rgba(6, 182, 212, 0.15)",
-                }}
-                whileHover={{
-                  scale: 1.08,
-                  backgroundColor: "rgba(6, 182, 212, 0.12)",
-                  boxShadow: "0 0 20px rgba(6, 182, 212, 0.15)",
-                  transition: { duration: 0.2 },
-                }}
-              >
-                {tech}
-              </motion.span>
-            ))}
+            {techStack.map((tech, index) => {
+              const techData = getTechIcon(tech);
+              const IconComponent = techData.icon;
+              return (
+                <motion.div
+                  key={tech}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="relative group/icon cursor-pointer"
+                  title={techData.name}
+                  whileHover={{
+                    scale: 1.15,
+                    transition: { duration: 0.2 },
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = `drop-shadow(0 0 12px ${techData.color}60)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = "drop-shadow(0 0 0px transparent)";
+                  }}
+                >
+                  <IconComponent
+                    size={32}
+                    style={{
+                      color: techData.color,
+                    }}
+                  />
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* CTA Buttons */}

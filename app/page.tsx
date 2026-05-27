@@ -30,7 +30,7 @@ export default function HomePage() {
         <HeroSection />
         
         {/* Content Sections - Optimized spacing */}
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 pb-12 pt-8 sm:pt-12 space-y-12 md:space-y-16 lg:mb-0 mb-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 pb-12 pt-6 sm:pt-10 space-y-10 md:space-y-14 lg:mb-0 mb-28">
           <SkillsSection />
           
           <ProjectsSection />
