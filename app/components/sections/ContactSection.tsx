@@ -152,20 +152,7 @@ export function ContactSection() {
           ))}
         </motion.div>
 
-        {/* System status footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: cinematicEase, delay: 0.6 }}
-          className="text-center font-mono text-sm"
-          style={{ color: "rgba(148, 163, 184, 0.5)" }}
-        >
-          <span className="inline-flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            System ready. Let's build something amazing together.
-          </span>
-        </motion.div>
+        
       </div>
     </section>
   );

@@ -33,7 +33,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6 md:px-8 pb-12 pt-6 sm:pt-10 space-y-10 md:space-y-14 lg:mb-0 mb-28">
           <SkillsSection />
           
-          <ProjectsSection />
+          {/* <ProjectsSection /> */}
           
           <div className="-mt-8">
             <FeaturedProductGrid />
