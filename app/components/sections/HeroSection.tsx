@@ -43,7 +43,7 @@ export function HeroSection() {
     { name: "Docker", icon: SiDocker, brandColor: "#2496ED" },
     { name: "Firebase", icon: SiFirebase, brandColor: "#FFCA28" },
     { name: "MySQL", icon: SiMysql, brandColor: "#4479A1" },
-    { name: "Vercel", icon: SiVercel, brandColor: "#FFFFFF" },
+    
     // AI & Tooling
     { name: "Python", icon: SiPython, brandColor: "#3776AB" },
     { name: "LangChain", icon: TbBrain, brandColor: "#FFFFFF" },

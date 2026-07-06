@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, FileText } from "lucide-react";
+import { Github, Linkedin, FileText, House, BrainCircuit, FolderKanban, BriefcaseBusiness, UserRound  } from "lucide-react";
 import {
   HiOutlineUser,
   HiOutlineCodeBracket,
@@ -103,12 +103,32 @@ export function Navbar() {
 
   // Mobile nav items with icons
   const mobileNavItems = [
-    { label: "About", href: "#hero", icon: HiOutlineUser },
-    { label: "Skills", href: "#skills", icon: HiOutlineCodeBracket },
-    { label: "Projects", href: "#projects", icon: HiOutlineSquares2X2 },
-    { label: "Experience", href: "#experience", icon: HiOutlineBriefcase },
-    { label: "Contact", href: "#contact", icon: HiOutlineEnvelope },
-  ];
+  {
+    label: "Home",
+    href: "#hero",
+    icon: House,
+  },
+  {
+    label: "Skills",
+    href: "#skills",
+    icon: BrainCircuit,
+  },
+  {
+    label: "Projects",
+    href: "#projects",
+    icon: FolderKanban,
+  },
+  {
+    label: "Experience",
+    href: "#experience",
+    icon: BriefcaseBusiness,
+  },
+  {
+    label: "About",
+    href: "#contact", // or "#about" if you have an About section
+    icon: UserRound,
+  },
+];
 
   // Close mobile menu on Escape
   useEffect(() => {
@@ -406,60 +426,35 @@ export function Navbar() {
             damping: 25,
           }}
         >
-          {/* Active background glow */}
-          {isActive && (
-            <motion.div
-              layoutId="mobileDockActive"
-              className="absolute inset-0 rounded-xl"
-              style={{
-                background:
-                  "linear-gradient(to bottom, rgba(99,102,241,0.14), rgba(99,102,241,0.05))",
-                border: "1px solid rgba(255,255,255,0.08)",
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 350,
-                damping: 30,
-              }}
-            />
-          )}
+          
 
           {/* Icon */}
           <motion.div
             className="relative z-10"
             animate={{
               y: isActive ? -1 : 0,
+              scale: isActive ? 1.12 : 1,
             }}
             transition={{
               duration: 0.25,
             }}
             style={{
               color: isActive
-                ? "rgba(255,255,255,0.95)"
+                ? "#e98137"
                 : "rgba(255,255,255,0.58)",
             }}
           >
-            <Icon size={16} strokeWidth={2} />
+            <Icon size={20} strokeWidth={2} />
           </motion.div>
 
-          {/* Label */}
-          <span
-            className="relative z-10 text-[10px] leading-none font-medium"
-            style={{
-              color: isActive
-                ? "rgba(255,255,255,0.95)"
-                : "rgba(255,255,255,0.52)",
-            }}
-          >
-            {item.label}
-          </span>
+          
 
           {/* Active top indicator */}
           {isActive && (
             <motion.div
               className="
                 absolute
-                top-1
+                bottom-0
                 left-1/2
                 -translate-x-1/2
                 w-1
@@ -467,7 +462,7 @@ export function Navbar() {
                 rounded-full
               "
               style={{
-                background: "rgba(255,255,255,0.9)",
+                background: "#e98137",
                 boxShadow: "0 0 10px rgba(255,255,255,0.6)",
               }}
               initial={{ scale: 0 }}
