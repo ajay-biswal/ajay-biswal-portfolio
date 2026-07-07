@@ -3,14 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, FileText, House, BrainCircuit, FolderKanban, BriefcaseBusiness, UserRound  } from "lucide-react";
-import {
-  HiOutlineUser,
-  HiOutlineCodeBracket,
-  HiOutlineSquares2X2,
-  HiOutlineBriefcase,
-  HiOutlineEnvelope,
-} from "react-icons/hi2";
+import { Github, Linkedin, FileText, House, BrainCircuit, FolderKanban, BriefcaseBusiness, UserRound, Code2  } from "lucide-react";
+
 import { siteConfig } from "@/data/site.config";
 
 export function Navbar() {
@@ -111,7 +105,7 @@ export function Navbar() {
   {
     label: "Skills",
     href: "#skills",
-    icon: BrainCircuit,
+    icon: Code2,
   },
   {
     label: "Projects",
@@ -184,7 +178,7 @@ export function Navbar() {
             <span className="text-sm font-semibold text-foreground">
               {siteConfig.name}
             </span>
-            <span className="text-xs text-muted/60">&lt;/&gt;</span>
+            
           </div>
         </div>
 
