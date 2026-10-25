@@ -16,9 +16,9 @@ export interface Education {
 
 export const experiences: Experience[] = [
   {
-    company: "Dvika Next-Gen Tech Solutions",
+    company: "Marax Technologies pvt ltd",
     role: "Full Stack Developer",
-    period: "Sept 2025 – April 2026",
+    period: "July 2024 – Present",
     summary: "Worked on full-stack applications involving backend APIs, real-time communication systems, frontend interfaces, and deployment workflows using Node.js, React.js, Redux Toolkit, Next.js, Redis, and MongoDB.",
     achievements: [
       "Built tenant-based access control and RBAC workflows for multi-tenant applications",
